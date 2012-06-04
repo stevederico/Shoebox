@@ -1,0 +1,6 @@
+[submodule "Submodule/SDKit"]
+	path = Submodule/SDKit
+	url = git://github.com/stevederico/SDKit.git
+[submodule "Submodule/SSDataKit"]
+	path = Submodule/SSDataKit
+	url = git://github.com/samsoffes/ssdatakit.git

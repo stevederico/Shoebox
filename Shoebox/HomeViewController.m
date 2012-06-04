@@ -98,7 +98,10 @@
 {
     Group *g =  [self.groups objectAtIndex:indexPath.row];
     NSLog(@"Group %@",g);
-
+    
+    GridViewController *grid = [[GridViewController alloc] initWithPhotos:g.photos];
+    [self.navigationController pushViewController:grid animated:YES];
+    
 }
 
 - (void) showCreateGroup{

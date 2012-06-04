@@ -10,8 +10,9 @@ Added GroupName Length Check
 -Add InviteViewController Checkmarks
 -Add InviteViewControllerDelegate
 -Add RoundedCorners
-
-
+-Add GridViewController
+-Add ListViewController
+-Sort Grid By Newest
 
 ImagePicker
 Allowed it to push to next Controller

@@ -24,6 +24,7 @@
 		7B47277E157D3993007C0FF9 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B47277D157D3993007C0FF9 /* User.m */; };
 		7B472781157D39A0007C0FF9 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B472780157D39A0007C0FF9 /* Photo.m */; };
 		7B472784157D39AA007C0FF9 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B472783157D39AA007C0FF9 /* Group.m */; };
+		7B472787157D3E47007C0FF9 /* GridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B472786157D3E47007C0FF9 /* GridViewController.m */; };
 		7BB25414157C68DE0084ACA8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB25413157C68DE0084ACA8 /* UIKit.framework */; };
 		7BB25416157C68DE0084ACA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB25415157C68DE0084ACA8 /* Foundation.framework */; };
 		7BB25418157C68DE0084ACA8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB25417157C68DE0084ACA8 /* CoreGraphics.framework */; };
@@ -105,6 +106,8 @@
 		7B472780157D39A0007C0FF9 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		7B472782157D39AA007C0FF9 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
 		7B472783157D39AA007C0FF9 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
+		7B472785157D3E46007C0FF9 /* GridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridViewController.h; sourceTree = "<group>"; };
+		7B472786157D3E47007C0FF9 /* GridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridViewController.m; sourceTree = "<group>"; };
 		7BB2540F157C68DE0084ACA8 /* Shoebox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shoebox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BB25413157C68DE0084ACA8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7BB25415157C68DE0084ACA8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -421,6 +424,8 @@
 				7BB2549A157C6AA60084ACA8 /* NameGroupViewController.m */,
 				7B47276F157CA191007C0FF9 /* InviteViewController.h */,
 				7B472770157CA191007C0FF9 /* InviteViewController.m */,
+				7B472785157D3E46007C0FF9 /* GridViewController.h */,
+				7B472786157D3E47007C0FF9 /* GridViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -557,6 +562,7 @@
 				7B47277E157D3993007C0FF9 /* User.m in Sources */,
 				7B472781157D39A0007C0FF9 /* Photo.m in Sources */,
 				7B472784157D39AA007C0FF9 /* Group.m in Sources */,
+				7B472787157D3E47007C0FF9 /* GridViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

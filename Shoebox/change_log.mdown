@@ -1,5 +1,7 @@
 Added Create Group Flow
 Added Data Model
+Fixed Create Group Nav Stack Ordering
+Changed Photos Back Button
 
 
 -Add Core Data
@@ -15,4 +17,10 @@ Allowed it to push to next Controller
 
 
 SDKit
+-Improve front margin on SDPlaceholderCell
+-Remove DS Store
+-Only only Docs
+-Add Settings VC
+-ADd Parse Sync Class
+-Add ImagePicker
 -SDFooterButtonView initWithStyle:andText;

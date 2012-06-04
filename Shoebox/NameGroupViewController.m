@@ -68,7 +68,7 @@
     // Configure the cell...
     
     [[cell textField] setPlaceholder:@"Group Name"];
-    
+    [[cell textField] becomeFirstResponder];
     return cell;
 }
 
@@ -83,9 +83,18 @@
     return footer;
 }
 
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    
+    return 70.0f;
+
+}
+
 - (void)showInvite{
  
     NSLog(@"Show Invite Screen");
+    InviteViewController *invite = [[InviteViewController alloc] initWithNibName:@"InviteViewController" bundle:nil];
+    [self.navigationController pushViewController:invite animated:YES];
     
 }
 

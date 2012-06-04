@@ -83,9 +83,24 @@
 }
 
 - (void)showPhotos{
+    SDPlaceholderCell *pc = (SDPlaceholderCell*) [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    NSString *groupName = pc.textField.text;
 
+    if (groupName.length == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Please Enter Name" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+        return;
+    }
 
+    //Push Photo Select
+    
+//
+//    ELCAlbumPickerController *avc = [[ELCAlbumPickerController alloc] initWithStyle:UITableViewStyleGrouped];
+//    ELCImagePickerController *ipc = [[ELCImagePickerController alloc] initWithRootViewController:avc];
+//    [ipc setDelegate:self];
+//    [self presentModalViewController:ipc animated:YES];
 
+    
 }
 
 @end

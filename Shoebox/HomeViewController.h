@@ -5,9 +5,10 @@
 //  Created by Stephen Derico on 6/3/12.
 //  Copyright (c) 2012 Bixby Apps. All rights reserved.
 //
-
+#import "ELCAlbumPickerController.h"
+#import "ELCImagePickerController.h"
 #import <UIKit/UIKit.h>
 
-@interface HomeViewController : UITableViewController
+@interface HomeViewController : UITableViewController <ELCImagePickerControllerDelegate>
 
 @end

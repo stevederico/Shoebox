@@ -56,6 +56,10 @@
 		7BB2549B157C6AA60084ACA8 /* CreateGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB2549A157C6AA60084ACA8 /* CreateGroupViewController.m */; };
 		7BB2549F157C6ACA0084ACA8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB2549E157C6ACA0084ACA8 /* HomeViewController.m */; };
 		7BB254A1157C6B070084ACA8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB254A0157C6B070084ACA8 /* CoreData.framework */; };
+		7BB254A3157C6DBE0084ACA8 /* change_log.mdown in Resources */ = {isa = PBXBuildFile; fileRef = 7BB254A2157C6DBE0084ACA8 /* change_log.mdown */; };
+		7BB254A6157C70160084ACA8 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB254A5157C70160084ACA8 /* User.m */; };
+		7BB254A9157C70170084ACA8 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB254A8157C70170084ACA8 /* Group.m */; };
+		7BB254AC157C70170084ACA8 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB254AB157C70170084ACA8 /* Photo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,6 +138,13 @@
 		7BB2549D157C6ACA0084ACA8 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		7BB2549E157C6ACA0084ACA8 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		7BB254A0157C6B070084ACA8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		7BB254A2157C6DBE0084ACA8 /* change_log.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = change_log.mdown; sourceTree = "<group>"; };
+		7BB254A4157C70160084ACA8 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		7BB254A5157C70160084ACA8 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		7BB254A7157C70170084ACA8 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
+		7BB254A8157C70170084ACA8 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
+		7BB254AA157C70170084ACA8 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		7BB254AB157C70170084ACA8 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +195,7 @@
 		7BB25419157C68DE0084ACA8 /* Shoebox */ = {
 			isa = PBXGroup;
 			children = (
+				7BB254A2157C6DBE0084ACA8 /* change_log.mdown */,
 				7BB25422157C68DE0084ACA8 /* AppDelegate.h */,
 				7BB25423157C68DE0084ACA8 /* AppDelegate.m */,
 				7BB25498157C6A730084ACA8 /* View */,
@@ -324,6 +336,12 @@
 			isa = PBXGroup;
 			children = (
 				7BB25493157C6A660084ACA8 /* ShoeboxModel.xcdatamodeld */,
+				7BB254AA157C70170084ACA8 /* Photo.h */,
+				7BB254AB157C70170084ACA8 /* Photo.m */,
+				7BB254A7157C70170084ACA8 /* Group.h */,
+				7BB254A8157C70170084ACA8 /* Group.m */,
+				7BB254A4157C70160084ACA8 /* User.h */,
+				7BB254A5157C70160084ACA8 /* User.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -428,6 +446,7 @@
 				7BB2547F157C6A560084ACA8 /* README.md in Resources */,
 				7BB25480157C6A560084ACA8 /* Red_Background.png in Resources */,
 				7BB25488157C6A560084ACA8 /* Readme.markdown in Resources */,
+				7BB254A3157C6DBE0084ACA8 /* change_log.mdown in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +479,9 @@
 				7BB25495157C6A660084ACA8 /* ShoeboxModel.xcdatamodeld in Sources */,
 				7BB2549B157C6AA60084ACA8 /* CreateGroupViewController.m in Sources */,
 				7BB2549F157C6ACA0084ACA8 /* HomeViewController.m in Sources */,
+				7BB254A6157C70160084ACA8 /* User.m in Sources */,
+				7BB254A9157C70170084ACA8 /* Group.m in Sources */,
+				7BB254AC157C70170084ACA8 /* Photo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

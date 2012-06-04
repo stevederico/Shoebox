@@ -10,6 +10,6 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <UIKit/UIKit.h>
 
-@interface CreateGroupViewController : UITableViewController
+@interface NameGroupViewController : UITableViewController
 
 @end

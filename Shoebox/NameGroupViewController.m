@@ -6,32 +6,29 @@
 //  Copyright (c) 2012 Bixby Apps. All rights reserved.
 //
 
-#import "CreateGroupViewController.h"
+#import "NameGroupViewController.h"
 
-@interface CreateGroupViewController ()
+@interface NameGroupViewController ()
 
 @end
 
-@implementation CreateGroupViewController
+@implementation NameGroupViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-        self.title = @"Create Group";
+        self.title = @"Name Group";
     }
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 
-    UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(close)];
-    self.navigationItem.leftBarButtonItem = cancel;
     
-    UIBarButtonItem *next = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStyleDone target:self action:@selector(showPhotos)];
+    UIBarButtonItem *next = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(close)];
     self.navigationItem.rightBarButtonItem = next;
 }
 
@@ -76,31 +73,28 @@
 }
 
 
+- (UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+ 
+    SDFooterButtonView *footer = [[SDFooterButtonView alloc] initWithStyle:SDFooterButtonStyleGray];
+    [footer.button setTitle:@"Invite Friends" forState:UIControlStateNormal];
+    [footer.button addTarget:self action:@selector(showInvite) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    return footer;
+}
+
+- (void)showInvite{
+ 
+    NSLog(@"Show Invite Screen");
+    
+}
+
+
 - (void)close{
  
     [self dismissModalViewControllerAnimated:YES];
     
 }
 
-- (void)showPhotos{
-    SDPlaceholderCell *pc = (SDPlaceholderCell*) [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    NSString *groupName = pc.textField.text;
-
-    if (groupName.length == 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Please Enter Name" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
-        return;
-    }
-
-    //Push Photo Select
-    
-//
-//    ELCAlbumPickerController *avc = [[ELCAlbumPickerController alloc] initWithStyle:UITableViewStyleGrouped];
-//    ELCImagePickerController *ipc = [[ELCImagePickerController alloc] initWithRootViewController:avc];
-//    [ipc setDelegate:self];
-//    [self presentModalViewController:ipc animated:YES];
-
-    
-}
 
 @end

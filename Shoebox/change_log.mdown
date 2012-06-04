@@ -1,3 +1,18 @@
-Added CreateGroupVC
+Added Create Group Flow
+Added Data Model
+
+
 -Add Core Data
 -Add Data Manager
+
+
+
+
+ImagePicker
+Allowed it to push to next Controller
+-Change Checkmarks to Green
+-Reverse Order
+
+
+SDKit
+-SDFooterButtonView initWithStyle:andText;

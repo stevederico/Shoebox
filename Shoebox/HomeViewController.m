@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Bixby Apps. All rights reserved.
 //
 
-#import "CreateGroupViewController.h"
+#import "NameGroupViewController.h"
 #import "HomeViewController.h"
 
 @interface HomeViewController ()
@@ -88,18 +88,23 @@
 - (void) showCreateGroup{
 
     ELCAlbumPickerController *avc = [[ELCAlbumPickerController alloc] initWithStyle:UITableViewStyleGrouped];
-    ELCImagePickerController *ipc = [[ELCImagePickerController alloc] initWithRootViewController:avc];
-    [ipc setDelegate:self];
-    [self presentModalViewController:ipc animated:YES];
+    controller  = [[ELCImagePickerController alloc] initWithRootViewController:avc];
+    [avc setParent:controller];  
+    [controller setDelegate:self];
+    [self presentModalViewController:controller animated:YES];
     
 }
 
 #pragma ELCImagePickerControllerDelegate
 
-- (void)elcImagePickerController:(ELCImagePickerController *)picker didFinishPickingMediaWithInfo:(NSArray *)info;{
+- (void)elcImagePickerController:(ELCImagePickerController *)picker didFinishPickingMediaWithInfo:(NSArray *)info{
     
     //Save Images to DB
     //Push Group Name
+    NameGroupViewController  *cvc = [[NameGroupViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    [controller pushViewController:cvc animated:YES];
+    
+
 
 
 }

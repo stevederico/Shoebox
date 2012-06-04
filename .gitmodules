@@ -4,3 +4,9 @@
 [submodule "Submodule/SSDataKit"]
 	path = Submodule/SSDataKit
 	url = git://github.com/samsoffes/ssdatakit.git
+[submodule "ELCImagePickerController"]
+	path = ELCImagePickerController
+	url = git@github.com:stevederico/ELCImagePickerController.git
+[submodule "Submodule/ELCImagePickerController"]
+	path = Submodule/ELCImagePickerController
+	url = git@github.com:stevederico/ELCImagePickerController.git

@@ -53,6 +53,9 @@
 		7BB25491157C6A560084ACA8 /* SSManagedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB25469157C6A560084ACA8 /* SSManagedViewController.m */; };
 		7BB25492157C6A560084ACA8 /* SSRemoteManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB2546B157C6A560084ACA8 /* SSRemoteManagedObject.m */; };
 		7BB25495157C6A660084ACA8 /* ShoeboxModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7BB25493157C6A660084ACA8 /* ShoeboxModel.xcdatamodeld */; };
+		7BB2549B157C6AA60084ACA8 /* CreateGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB2549A157C6AA60084ACA8 /* CreateGroupViewController.m */; };
+		7BB2549F157C6ACA0084ACA8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB2549E157C6ACA0084ACA8 /* HomeViewController.m */; };
+		7BB254A1157C6B070084ACA8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB254A0157C6B070084ACA8 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,6 +129,11 @@
 		7BB2546A157C6A560084ACA8 /* SSRemoteManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSRemoteManagedObject.h; sourceTree = "<group>"; };
 		7BB2546B157C6A560084ACA8 /* SSRemoteManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSRemoteManagedObject.m; sourceTree = "<group>"; };
 		7BB25494157C6A660084ACA8 /* ShoeboxModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShoeboxModel.xcdatamodel; sourceTree = "<group>"; };
+		7BB25499157C6AA60084ACA8 /* CreateGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateGroupViewController.h; sourceTree = "<group>"; };
+		7BB2549A157C6AA60084ACA8 /* CreateGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateGroupViewController.m; sourceTree = "<group>"; };
+		7BB2549D157C6ACA0084ACA8 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		7BB2549E157C6ACA0084ACA8 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		7BB254A0157C6B070084ACA8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BB254A1157C6B070084ACA8 /* CoreData.framework in Frameworks */,
 				7BB25414157C68DE0084ACA8 /* UIKit.framework in Frameworks */,
 				7BB25416157C68DE0084ACA8 /* Foundation.framework in Frameworks */,
 				7BB25418157C68DE0084ACA8 /* CoreGraphics.framework in Frameworks */,
@@ -162,6 +171,7 @@
 		7BB25412157C68DE0084ACA8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7BB254A0157C6B070084ACA8 /* CoreData.framework */,
 				7BB2542A157C6A560084ACA8 /* SDKit */,
 				7BB25452157C6A560084ACA8 /* SSDataKit */,
 				7BB25413157C68DE0084ACA8 /* UIKit.framework */,
@@ -321,6 +331,9 @@
 		7BB25497157C6A6E0084ACA8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7BB2549C157C6AAD0084ACA8 /* CreateGroup */,
+				7BB2549D157C6ACA0084ACA8 /* HomeViewController.h */,
+				7BB2549E157C6ACA0084ACA8 /* HomeViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -330,6 +343,15 @@
 			children = (
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		7BB2549C157C6AAD0084ACA8 /* CreateGroup */ = {
+			isa = PBXGroup;
+			children = (
+				7BB25499157C6AA60084ACA8 /* CreateGroupViewController.h */,
+				7BB2549A157C6AA60084ACA8 /* CreateGroupViewController.m */,
+			);
+			name = CreateGroup;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -436,6 +458,8 @@
 				7BB25491157C6A560084ACA8 /* SSManagedViewController.m in Sources */,
 				7BB25492157C6A560084ACA8 /* SSRemoteManagedObject.m in Sources */,
 				7BB25495157C6A660084ACA8 /* ShoeboxModel.xcdatamodeld in Sources */,
+				7BB2549B157C6AA60084ACA8 /* CreateGroupViewController.m in Sources */,
+				7BB2549F157C6ACA0084ACA8 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

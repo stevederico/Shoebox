@@ -5,6 +5,7 @@
 //  Created by Stephen Derico on 6/4/12.
 //  Copyright (c) 2012 Bixby Apps. All rights reserved.
 //
+
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "GridViewController.h"
 
@@ -14,34 +15,25 @@
 
 @implementation GridViewController
 @synthesize photos = _photos;
+@synthesize group = _group;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-
-        
-    }
-    return self;
-}
-
-- (id)initWithPhotos:(NSSet*)photos{
+- (id)initWithGroup:(Group*)group{
 
     self = [super init];
     if (self) {
-        self.photos = photos;
+        
+        self.title = group.name;
+        
+        self.photos = group.photos;
         typedef void (^ALAssetsLibraryAssetForURLResultBlock)(ALAsset *asset);
         typedef void (^ALAssetsLibraryAccessFailureBlock)(NSError *error);
         
         // Custom initialization
         UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-     
-        [scrollView setBackgroundColor:[UIColor redColor]];
         [self.view addSubview:scrollView];
         CGRect __block rect = CGRectMake(5, 5, 100, 100);
         
-        for (Photo *p in photos) {
+        for (Photo *p in self.photos) {
             NSLog(@"Path %@",p.path);
          
             ALAssetsLibraryAssetForURLResultBlock resultblock = ^(ALAsset *myasset)
@@ -51,12 +43,13 @@
                 if (iref) {
 
                     UIImage *image = [UIImage imageWithCGImage:iref];
-                    UIImageView *iv = [[UIImageView alloc] initWithFrame:rect];
-                    [iv setImage:image];
-                    [iv setClipsToBounds:YES];
-                    [iv setContentMode:UIViewContentModeScaleAspectFill];
+                    UIButton *b = [[UIButton alloc] initWithFrame:rect];
+                    [b setImage:image forState:UIControlStateNormal];
+                    [b setClipsToBounds:YES];
+                    [b.imageView setContentMode:UIViewContentModeScaleAspectFill];
+                    [b addTarget:self action:@selector(showPhoto:) forControlEvents:UIControlEventTouchUpInside];
                     NSLog(@"Added Rect %f,%f",rect.origin.x,rect.origin.y);
-                    [scrollView addSubview:iv];
+                    [scrollView addSubview:b];
                     
                     
                     if (rect.origin.x +105 >= self.view.bounds.size.width) {
@@ -96,6 +89,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    UIBarButtonItem *inviteButton = [[UIBarButtonItem alloc] initWithTitle:@"Invite" style:UIBarButtonItemStyleBordered target:self  action:@selector(showInvite)];
+    self.navigationItem.rightBarButtonItem = inviteButton;
 }
 
 - (void)viewDidUnload
@@ -109,4 +104,22 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+
+-(void)showPhoto:(id)sender{
+    
+    UIButton *b = (UIButton*)sender;
+    UIImage *image = b.imageView.image;
+    
+    PhotoViewController *pvc = [[PhotoViewController alloc] initWithImage:image];
+    [self.navigationController pushViewController:pvc animated:YES];
+
+}
+
+- (void)showInvite{
+
+    InviteViewController *ivc = [[InviteViewController alloc] initWithGroup:self.group];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:ivc];
+    [self.navigationController presentModalViewController:nav animated:YES];
+
+}
 @end

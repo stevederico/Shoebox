@@ -16,16 +16,21 @@
 @synthesize segmentControl;
 @synthesize tableView;
 @synthesize data;
+@synthesize group;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+
+- (id)initWithGroup:(Group*)group{
+
+    self = [super init];
     if (self) {
-        // Custom initialization
         self.title = @"Invite Friends";
     }
+    
+    
+
     return self;
 }
+
 
 - (void)viewDidLoad
 {

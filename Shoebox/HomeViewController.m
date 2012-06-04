@@ -32,6 +32,9 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self  action: @selector(showCreateGroup)];
     self.navigationItem.rightBarButtonItem = addButton;
     
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:nil  action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -99,7 +102,7 @@
     Group *g =  [self.groups objectAtIndex:indexPath.row];
     NSLog(@"Group %@",g);
     
-    GridViewController *grid = [[GridViewController alloc] initWithPhotos:g.photos];
+    GridViewController *grid = [[GridViewController alloc] initWithGroup:g];
     [self.navigationController pushViewController:grid animated:YES];
     
 }

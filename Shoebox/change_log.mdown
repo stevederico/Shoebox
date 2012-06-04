@@ -3,22 +3,23 @@ Added Data Model
 Fixed Create Group Nav Stack Ordering
 Changed Photos Back Button
 Added GroupName Length Check
+Added Core Data
+Added Data Manager
+Added GridViewController
 
-
--Add Core Data
--Add Data Manager
 -Add InviteViewController Checkmarks
 -Add InviteViewControllerDelegate
 -Add RoundedCorners
--Add GridViewController
--Add ListViewController
+-Add PhotoViewController
+-Add Upload Button to GridView
 -Sort Grid By Newest
+-Add UIButtons to GridView
 
 ImagePicker
 Allowed it to push to next Controller
 -Change Checkmarks to Green
 -Reverse Order
--Select All
+
 
 SDKit
 -Improve front margin on SDPlaceholderCell

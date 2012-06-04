@@ -17,7 +17,7 @@ ImagePicker
 Allowed it to push to next Controller
 -Change Checkmarks to Green
 -Reverse Order
-
+-Select All
 
 SDKit
 -Improve front margin on SDPlaceholderCell

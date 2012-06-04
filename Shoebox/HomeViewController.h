@@ -5,6 +5,8 @@
 //  Created by Stephen Derico on 6/3/12.
 //  Copyright (c) 2012 Bixby Apps. All rights reserved.
 //
+#import "User.h"
+#import "Photo.h"
 #import "NameGroupViewController.h"
 #import "ELCAlbumPickerController.h"
 #import "ELCImagePickerController.h"
@@ -12,8 +14,7 @@
 
 @interface HomeViewController : UITableViewController <ELCImagePickerControllerDelegate>{
     ELCImagePickerController *controller ;
-    
-
 }
+@property (nonatomic, strong) NSArray *groups;
 
 @end

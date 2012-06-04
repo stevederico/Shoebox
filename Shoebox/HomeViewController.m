@@ -14,7 +14,7 @@
 @end
 
 @implementation HomeViewController
-
+@synthesize groups;
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -31,6 +31,21 @@
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self  action: @selector(showCreateGroup)];
     self.navigationItem.rightBarButtonItem = addButton;
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    NSFetchRequest *fetch = [NSFetchRequest fetchRequestWithEntityName:@"Group"];
+    groups = [[SSManagedObject mainContext] executeFetchRequest:fetch error:nil];
+    if ([groups count]>0) {
+        NSLog(@"TOTAL ITEMS %d",[groups count]);
+
+    }
+    
+    [self.tableView reloadData];
+
 }
 
 - (void)viewDidUnload
@@ -51,23 +66,28 @@
 {
 
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
     // Return the number of rows in the section.
-    return 0;
+    return self.groups.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+    }
     
     // Configure the cell...
-    
+    cell.textLabel.text = [[self.groups objectAtIndex:indexPath.row] name];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",[[[self.groups objectAtIndex:indexPath.row] photos] count]];
     return cell;
 }
 
@@ -76,13 +96,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    Group *g =  [self.groups objectAtIndex:indexPath.row];
+    NSLog(@"Group %@",g);
+
 }
 
 - (void) showCreateGroup{
@@ -99,9 +115,14 @@
 
 - (void)elcImagePickerController:(ELCImagePickerController *)picker didFinishPickingMediaWithInfo:(NSArray *)info{
     
+    NSLog(@"Images %@",info);
+    
+ 
+    
     //Save Images to DB
     //Push Group Name
     NameGroupViewController  *cvc = [[NameGroupViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    cvc.photos = info;
     [controller pushViewController:cvc animated:YES];
     
 

@@ -13,7 +13,7 @@
 @end
 
 @implementation NameGroupViewController
-
+@synthesize photos;
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -30,6 +30,8 @@
     
     UIBarButtonItem *next = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(close)];
     self.navigationItem.rightBarButtonItem = next;
+    
+  
 }
 
 - (void)viewDidUnload
@@ -95,6 +97,8 @@
     if (![self checkGroupName]) {
         return;
     }
+        
+ 
     
     NSLog(@"Show Invite Screen");
     InviteViewController *invite = [[InviteViewController alloc] initWithNibName:@"InviteViewController" bundle:nil];
@@ -109,8 +113,6 @@
         [self dismissModalViewControllerAnimated:YES];
     }
     
-
-    
 }
 
 
@@ -124,6 +126,11 @@
         [alert show];
         return false;
     }
+    
+    //Create Photos
+    SDDataManager *dm = [[SDDataManager alloc] init];
+    [dm writePhotosWithArray:self.photos andGroupName:groupName];
+    
     return true;
 
 }

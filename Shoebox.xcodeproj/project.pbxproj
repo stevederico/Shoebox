@@ -20,6 +20,10 @@
 		7B03173B157C96CA002DB7A7 /* Overlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B03172E157C96CA002DB7A7 /* Overlay@2x.png */; };
 		7B472772157CA191007C0FF9 /* InviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B472770157CA191007C0FF9 /* InviteViewController.m */; };
 		7B472773157CA191007C0FF9 /* InviteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B472771157CA191007C0FF9 /* InviteViewController.xib */; };
+		7B472777157D25BD007C0FF9 /* SDDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B472776157D25BD007C0FF9 /* SDDataManager.m */; };
+		7B47277E157D3993007C0FF9 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B47277D157D3993007C0FF9 /* User.m */; };
+		7B472781157D39A0007C0FF9 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B472780157D39A0007C0FF9 /* Photo.m */; };
+		7B472784157D39AA007C0FF9 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B472783157D39AA007C0FF9 /* Group.m */; };
 		7BB25414157C68DE0084ACA8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB25413157C68DE0084ACA8 /* UIKit.framework */; };
 		7BB25416157C68DE0084ACA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB25415157C68DE0084ACA8 /* Foundation.framework */; };
 		7BB25418157C68DE0084ACA8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB25417157C68DE0084ACA8 /* CoreGraphics.framework */; };
@@ -70,9 +74,6 @@
 		7BB2549F157C6ACA0084ACA8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB2549E157C6ACA0084ACA8 /* HomeViewController.m */; };
 		7BB254A1157C6B070084ACA8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB254A0157C6B070084ACA8 /* CoreData.framework */; };
 		7BB254A3157C6DBE0084ACA8 /* change_log.mdown in Resources */ = {isa = PBXBuildFile; fileRef = 7BB254A2157C6DBE0084ACA8 /* change_log.mdown */; };
-		7BB254A6157C70160084ACA8 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB254A5157C70160084ACA8 /* User.m */; };
-		7BB254A9157C70170084ACA8 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB254A8157C70170084ACA8 /* Group.m */; };
-		7BB254AC157C70170084ACA8 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB254AB157C70170084ACA8 /* Photo.m */; };
 		7BB254D0157C86CD0084ACA8 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB254CF157C86CD0084ACA8 /* AssetsLibrary.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +97,14 @@
 		7B47276F157CA191007C0FF9 /* InviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteViewController.h; sourceTree = "<group>"; };
 		7B472770157CA191007C0FF9 /* InviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteViewController.m; sourceTree = "<group>"; };
 		7B472771157CA191007C0FF9 /* InviteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InviteViewController.xib; sourceTree = "<group>"; };
+		7B472775157D25BD007C0FF9 /* SDDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDDataManager.h; sourceTree = "<group>"; };
+		7B472776157D25BD007C0FF9 /* SDDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDDataManager.m; sourceTree = "<group>"; };
+		7B47277C157D3993007C0FF9 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		7B47277D157D3993007C0FF9 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		7B47277F157D39A0007C0FF9 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		7B472780157D39A0007C0FF9 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
+		7B472782157D39AA007C0FF9 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
+		7B472783157D39AA007C0FF9 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
 		7BB2540F157C68DE0084ACA8 /* Shoebox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shoebox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BB25413157C68DE0084ACA8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7BB25415157C68DE0084ACA8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -172,12 +181,6 @@
 		7BB2549E157C6ACA0084ACA8 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		7BB254A0157C6B070084ACA8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		7BB254A2157C6DBE0084ACA8 /* change_log.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = change_log.mdown; sourceTree = "<group>"; };
-		7BB254A4157C70160084ACA8 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		7BB254A5157C70160084ACA8 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		7BB254A7157C70170084ACA8 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
-		7BB254A8157C70170084ACA8 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
-		7BB254AA157C70170084ACA8 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
-		7BB254AB157C70170084ACA8 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		7BB254CF157C86CD0084ACA8 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -396,13 +399,15 @@
 		7BB25496157C6A690084ACA8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7B472775157D25BD007C0FF9 /* SDDataManager.h */,
+				7B472776157D25BD007C0FF9 /* SDDataManager.m */,
 				7BB25493157C6A660084ACA8 /* ShoeboxModel.xcdatamodeld */,
-				7BB254AA157C70170084ACA8 /* Photo.h */,
-				7BB254AB157C70170084ACA8 /* Photo.m */,
-				7BB254A7157C70170084ACA8 /* Group.h */,
-				7BB254A8157C70170084ACA8 /* Group.m */,
-				7BB254A4157C70160084ACA8 /* User.h */,
-				7BB254A5157C70160084ACA8 /* User.m */,
+				7B472782157D39AA007C0FF9 /* Group.h */,
+				7B472783157D39AA007C0FF9 /* Group.m */,
+				7B47277F157D39A0007C0FF9 /* Photo.h */,
+				7B472780157D39A0007C0FF9 /* Photo.m */,
+				7B47277C157D3993007C0FF9 /* User.h */,
+				7B47277D157D3993007C0FF9 /* User.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -410,9 +415,12 @@
 		7BB25497157C6A6E0084ACA8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7BB2549C157C6AAD0084ACA8 /* CreateGroup */,
 				7BB2549D157C6ACA0084ACA8 /* HomeViewController.h */,
 				7BB2549E157C6ACA0084ACA8 /* HomeViewController.m */,
+				7BB25499157C6AA60084ACA8 /* NameGroupViewController.h */,
+				7BB2549A157C6AA60084ACA8 /* NameGroupViewController.m */,
+				7B47276F157CA191007C0FF9 /* InviteViewController.h */,
+				7B472770157CA191007C0FF9 /* InviteViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -423,17 +431,6 @@
 				7B472771157CA191007C0FF9 /* InviteViewController.xib */,
 			);
 			name = View;
-			sourceTree = "<group>";
-		};
-		7BB2549C157C6AAD0084ACA8 /* CreateGroup */ = {
-			isa = PBXGroup;
-			children = (
-				7BB25499157C6AA60084ACA8 /* NameGroupViewController.h */,
-				7BB2549A157C6AA60084ACA8 /* NameGroupViewController.m */,
-				7B47276F157CA191007C0FF9 /* InviteViewController.h */,
-				7B472770157CA191007C0FF9 /* InviteViewController.m */,
-			);
-			name = CreateGroup;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -550,15 +547,16 @@
 				7BB25495157C6A660084ACA8 /* ShoeboxModel.xcdatamodeld in Sources */,
 				7BB2549B157C6AA60084ACA8 /* NameGroupViewController.m in Sources */,
 				7BB2549F157C6ACA0084ACA8 /* HomeViewController.m in Sources */,
-				7BB254A6157C70160084ACA8 /* User.m in Sources */,
-				7BB254A9157C70170084ACA8 /* Group.m in Sources */,
-				7BB254AC157C70170084ACA8 /* Photo.m in Sources */,
 				7B03172F157C96CA002DB7A7 /* ELCAlbumPickerController.m in Sources */,
 				7B031731157C96CA002DB7A7 /* ELCAsset.m in Sources */,
 				7B031732157C96CA002DB7A7 /* ELCAssetCell.m in Sources */,
 				7B031734157C96CA002DB7A7 /* ELCAssetTablePicker.m in Sources */,
 				7B031736157C96CA002DB7A7 /* ELCImagePickerController.m in Sources */,
 				7B472772157CA191007C0FF9 /* InviteViewController.m in Sources */,
+				7B472777157D25BD007C0FF9 /* SDDataManager.m in Sources */,
+				7B47277E157D3993007C0FF9 /* User.m in Sources */,
+				7B472781157D39A0007C0FF9 /* Photo.m in Sources */,
+				7B472784157D39AA007C0FF9 /* Group.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -2,7 +2,7 @@
 //  Photo.m
 //  Shoebox
 //
-//  Created by Stephen Derico on 6/3/12.
+//  Created by Stephen Derico on 6/4/12.
 //  Copyright (c) 2012 Bixby Apps. All rights reserved.
 //
 
@@ -13,9 +13,9 @@
 
 @implementation Photo
 
-@dynamic timestamp;
 @dynamic path;
-@dynamic owner;
+@dynamic timestamp;
 @dynamic group;
+@dynamic owner;
 
 @end

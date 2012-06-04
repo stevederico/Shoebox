@@ -2,11 +2,14 @@ Added Create Group Flow
 Added Data Model
 Fixed Create Group Nav Stack Ordering
 Changed Photos Back Button
+Added GroupName Length Check
 
 
 -Add Core Data
 -Add Data Manager
-
+-Add InviteViewController Checkmarks
+-Add InviteViewControllerDelegate
+-Add RoundedCorners
 
 
 
@@ -23,4 +26,5 @@ SDKit
 -Add Settings VC
 -ADd Parse Sync Class
 -Add ImagePicker
+-Add RoundedCorners UINavigationBar
 -SDFooterButtonView initWithStyle:andText;

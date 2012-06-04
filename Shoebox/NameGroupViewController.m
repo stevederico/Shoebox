@@ -92,6 +92,10 @@
 
 - (void)showInvite{
  
+    if (![self checkGroupName]) {
+        return;
+    }
+    
     NSLog(@"Show Invite Screen");
     InviteViewController *invite = [[InviteViewController alloc] initWithNibName:@"InviteViewController" bundle:nil];
     [self.navigationController pushViewController:invite animated:YES];
@@ -99,11 +103,29 @@
 }
 
 
-- (void)close{
- 
-    [self dismissModalViewControllerAnimated:YES];
+- (void)close{    
+    
+    if ([self checkGroupName]) {
+        [self dismissModalViewControllerAnimated:YES];
+    }
+    
+
     
 }
 
+
+- (BOOL)checkGroupName{
+
+    SDPlaceholderCell *pc = (SDPlaceholderCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    NSString *groupName = [[pc textField] text];
+    
+    if (groupName.length == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Please Enter Group Name" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        return false;
+    }
+    return true;
+
+}
 
 @end

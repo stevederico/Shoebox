@@ -13,14 +13,22 @@
 @end
 
 @implementation PhotoViewController
-
+@synthesize imageView;
 - (id)initWithImage:(UIImage*)image{
     self = [super init];
     
     if (self) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+        UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+        [scrollView setDelegate:self];
+        [scrollView setContentSize:image.size];
+        [scrollView setMinimumZoomScale:1.0];
+        [scrollView setMaximumZoomScale:6.0];
+        self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
         [imageView setImage:image];
-        [self.view addSubview:imageView];
+        
+        [scrollView addSubview:imageView];
+        [self.view addSubview:scrollView];
+        
     }
     
     
@@ -45,4 +53,10 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+#pragma UIScrollView
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    return self.imageView;
+}
 @end

@@ -29,8 +29,17 @@
         typedef void (^ALAssetsLibraryAccessFailureBlock)(NSError *error);
         
         // Custom initialization
-        UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    
+        
+        UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width,  self.view.bounds.size.height - 50)];
         [self.view addSubview:scrollView];
+        
+        SDFooterButtonView *footer = [[SDFooterButtonView alloc] initWithStyle:SDFooterButtonStyleGreen];
+        [footer setFrame:CGRectMake(0, 350,  self.view.bounds.size.width, 50.0f)];
+        [footer.button setTitle:@"Add Photos" forState:UIControlStateNormal];
+        [footer.button addTarget:self action:@selector(showUpload) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:footer];
+        
         CGRect __block rect = CGRectMake(5, 5, 100, 100);
         
         for (Photo *p in self.photos) {
@@ -39,10 +48,11 @@
             ALAssetsLibraryAssetForURLResultBlock resultblock = ^(ALAsset *myasset)
             {
                 ALAssetRepresentation *rep = [myasset defaultRepresentation];
-                CGImageRef iref = [rep fullResolutionImage];
+                CGImageRef iref = [rep fullScreenImage];
                 if (iref) {
-
-                    UIImage *image = [UIImage imageWithCGImage:iref];
+                    ALAssetOrientation *n  = rep.orientation;
+                    NSLog(@"%d",n);
+                    UIImage *image = [UIImage imageWithCGImage:iref scale:2.0 orientation:0];
                     UIButton *b = [[UIButton alloc] initWithFrame:rect];
                     [b setImage:image forState:UIControlStateNormal];
                     [b setClipsToBounds:YES];
@@ -104,6 +114,30 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+#pragma ELCImagePickerControllerDelegate
+
+- (void)elcImagePickerController:(ELCImagePickerController *)picker didFinishPickingMediaWithInfo:(NSArray *)info{
+    
+//    NSLog(@"Images %@",info);
+//    
+//    //Save Images to DB
+//    //Push Group Name
+//    NameGroupViewController  *cvc = [[NameGroupViewController alloc] initWithStyle:UITableViewStyleGrouped];
+//    cvc.photos = info;
+//    [controller pushViewController:cvc animated:YES];
+    
+    
+    
+    
+}
+- (void)elcImagePickerControllerDidCancel:(ELCImagePickerController *)picker{
+    
+    [self dismissModalViewControllerAnimated:YES];
+    
+}
+
+#pragma GridViewController
+
 
 -(void)showPhoto:(id)sender{
     
@@ -122,4 +156,15 @@
     [self.navigationController presentModalViewController:nav animated:YES];
 
 }
+- (void)showUpload{
+
+    ELCAlbumPickerController *avc = [[ELCAlbumPickerController alloc] initWithStyle:UITableViewStyleGrouped];
+    ELCImagePickerController *controller  = [[ELCImagePickerController alloc] initWithRootViewController:avc];
+    [avc setParent:controller];  
+    [controller setDelegate:self];
+    [self presentModalViewController:controller animated:YES];
+    
+    
+}
+
 @end

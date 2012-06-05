@@ -3,17 +3,27 @@ Added Data Model
 Fixed Create Group Nav Stack Ordering
 Changed Photos Back Button
 Added GroupName Length Check
+
+6/4/2012
 Added Core Data
 Added Data Manager
 Added GridViewController
+Added Buttons to GridView
+Added PhotoViewController
+Added Zooming and Scrolling to PhotoViewController
+Fixed Orientation Issue
 
 -Add InviteViewController Checkmarks
 -Add InviteViewControllerDelegate
 -Add RoundedCorners
--Add PhotoViewController
+-Add ScrollView to PhotoViewController
+-Improve Photo Quality on PhotoViewController
 -Add Upload Button to GridView
 -Sort Grid By Newest
+-Add Transparent NavigationBar to PhotosViewController
 -Add UIButtons to GridView
+-Add Parse Upload
+-Add Parse Sync with DB
 
 ImagePicker
 Allowed it to push to next Controller

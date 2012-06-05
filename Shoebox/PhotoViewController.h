@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PhotoViewController : UIViewController
+@interface PhotoViewController : UIViewController <UIScrollViewDelegate>
+@property (nonatomic, strong) UIImageView *imageView;
 - (id)initWithImage:(UIImage*)image;
+
 @end

@@ -17,19 +17,12 @@
 @synthesize photos = _photos;
 @synthesize group = _group;
 
-- (id)initWithGroup:(Group*)group{
+- (id)initWithGroup:(PFObject*)group{
 
     self = [super init];
     if (self) {
         
-        self.title = group.name;
-        
-        self.photos = group.photos;
-        typedef void (^ALAssetsLibraryAssetForURLResultBlock)(ALAsset *asset);
-        typedef void (^ALAssetsLibraryAccessFailureBlock)(NSError *error);
-        
-        // Custom initialization
-    
+        self.title = [group objectForKey:@"Name"];
         
         UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width,  self.view.bounds.size.height - 50)];
         [self.view addSubview:scrollView];
@@ -40,19 +33,20 @@
         [footer.button addTarget:self action:@selector(showUpload) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:footer];
         
-        CGRect __block rect = CGRectMake(5, 5, 100, 100);
         
-        for (Photo *p in self.photos) {
-            NSLog(@"Path %@",p.path);
-         
-            ALAssetsLibraryAssetForURLResultBlock resultblock = ^(ALAsset *myasset)
-            {
-                ALAssetRepresentation *rep = [myasset defaultRepresentation];
-                CGImageRef iref = [rep fullScreenImage];
-                if (iref) {
-                    ALAssetOrientation *n  = rep.orientation;
-                    NSLog(@"%d",n);
-                    UIImage *image = [UIImage imageWithCGImage:iref scale:2.0 orientation:0];
+        PFRelation *relation = [group relationforKey:@"Photos"];
+        
+        [[relation query] findObjectsInBackgroundWithBlock:^(NSArray *result, NSError *error) {
+            if (error) {
+                // There was an error
+            } else {
+                // results have all the Posts the current user liked.
+                CGRect __block rect = CGRectMake(5, 5, 100, 100);
+                
+                for (PFObject *p in result) {
+
+                    NSData *data = [[p objectForKey:@"file"] getData];
+                    UIImage *image = [UIImage imageWithData:data];
                     UIButton *b = [[UIButton alloc] initWithFrame:rect];
                     [b setImage:image forState:UIControlStateNormal];
                     [b setClipsToBounds:YES];
@@ -63,32 +57,27 @@
                     
                     
                     if (rect.origin.x +105 >= self.view.bounds.size.width) {
-                         rect = CGRectMake(5, rect.origin.y + 105, rect.size.width, rect.size.height);
-                     
+                        rect = CGRectMake(5, rect.origin.y + 105, rect.size.width, rect.size.height);
+                        
                     }else{
                         rect = CGRectMake(rect.origin.x + 105, rect.origin.y, rect.size.width, rect.size.height);
-                    
+                        
                     }
-                      [scrollView setContentSize:CGSizeMake(rect.size.width, rect.size.height)];
+                    [scrollView setContentSize:CGSizeMake(rect.size.width, rect.size.height)];
+                    
+                    
+                    
                     
                 }
-            };
-            
-            
-            
-            //
-            ALAssetsLibraryAccessFailureBlock failureblock  = ^(NSError *myerror)
-            {
-                NSLog(@"Can't get image - %@",[myerror localizedDescription]);
-            };
-            
-            NSURL *asseturl = [NSURL URLWithString:p.path];
-            ALAssetsLibrary *assetslibrary = [[ALAssetsLibrary alloc] init];
-            [assetslibrary assetForURL:asseturl 
-                           resultBlock:resultblock
-                          failureBlock:failureblock];
-            
-        }
+            }
+        }];
+        
+        
+        // Custom initialization
+    
+  
+        
+       
         
     }
     return self;

@@ -15,7 +15,7 @@
 
 @interface GridViewController : UIViewController
 @property (nonatomic, strong) NSSet  *photos;
-@property (nonatomic, strong) Group *group;
-- (id)initWithGroup:(Group*)group;
+@property (nonatomic, strong) PFObject *group;
+- (id)initWithGroup:(PFObject*)group;
 
 @end

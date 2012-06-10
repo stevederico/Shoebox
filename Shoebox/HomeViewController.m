@@ -41,14 +41,23 @@
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
-    NSFetchRequest *fetch = [NSFetchRequest fetchRequestWithEntityName:@"Group"];
-    groups = [[SSManagedObject mainContext] executeFetchRequest:fetch error:nil];
-    if ([groups count]>0) {
-        NSLog(@"TOTAL ITEMS %d",[groups count]);
-
-    }
+//    NSFetchRequest *fetch = [NSFetchRequest fetchRequestWithEntityName:@"Group"];
+//    groups = [[SSManagedObject mainContext] executeFetchRequest:fetch error:nil];
     
-    [self.tableView reloadData];
+    PFQuery *query = [PFQuery queryWithClassName:@"Group"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        self.groups = objects;
+            [self.tableView reloadData];
+        if ([groups count]>0) {
+            NSLog(@"TOTAL ITEMS %d",[groups count]);
+            
+        }
+        
+    }];
+    
+   
+    
+
 
 }
 
@@ -89,9 +98,9 @@
     }
     
     // Configure the cell...
-    cell.textLabel.text = [[self.groups objectAtIndex:indexPath.row] name];
+    cell.textLabel.text = [[self.groups objectAtIndex:indexPath.row] objectForKey:@"Name"];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",[[[self.groups objectAtIndex:indexPath.row] photos] count]];
+//    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",[[[self.groups objectAtIndex:indexPath.row] objectForKey:@"Photos"] count]];
     return cell;
 }
 

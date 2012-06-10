@@ -28,12 +28,12 @@
         self.title = [group objectForKey:@"Name"];
    
         self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width,  self.view.bounds.size.height - 50)];
-        [self.scrollView setContentOffset:CGPointMake(0.0f, -45.0f) ];
+//        [self.scrollView setContentOffset:CGPointMake(0.0f, -45.0f) ];
         [self.scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 155.0f, 0.0f)];
         [self.view addSubview:self.scrollView];
 
         footer = [[SDFooterButtonView alloc] initWithStyle:SDFooterButtonStyleGreen];
-        [footer setFrame:CGRectMake(0, self.view.bounds.size.height - 100.0f,  self.view.bounds.size.width, 50.0f)];
+        [footer setFrame:CGRectMake(0, self.view.bounds.size.height - 65.0f,  self.view.bounds.size.width, 50.0f)];
         [footer.button setTitle:@"Add Photos" forState:UIControlStateNormal];
         [footer.button addTarget:self action:@selector(showUpload) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:footer];
@@ -54,9 +54,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:nil  action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
+    
     UIBarButtonItem *inviteButton = [[UIBarButtonItem alloc] initWithTitle:@"Invite" style:UIBarButtonItemStyleBordered target:self  action:@selector(showInvite)];
     self.navigationItem.rightBarButtonItem = inviteButton;
-    [self.scrollView setContentOffset:CGPointMake(0.0f, -45.0f) ];
+//    [self.scrollView setContentOffset:CGPointMake(0.0f, -45.0f) ];
     [self.scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 155.0f, 0.0f)];
 
 }
@@ -64,20 +67,14 @@
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
  
-    [self.scrollView setContentOffset:CGPointMake(0.0f, -45.0f) animated:YES];
+//    [self.scrollView setContentOffset:CGPointMake(0.0f, -45.0f) animated:YES];
     [self.scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 155.0f, 0.0f)];
 
     
     NSLog(@"Height %f", self.view.bounds.size.height);
     NSLog(@"Place %f", self.view.bounds.size.height -65);
     [footer setFrame:CGRectMake(0, self.view.bounds.size.height - 65.0f,  self.view.bounds.size.width, 50.0f)];
- 
-    
 
-    
-
-    
-    
     PFRelation *relation = [self.group relationforKey:@"Photos"];
     PFQuery *q = [relation query];
     [q setCachePolicy:kPFCachePolicyNetworkElseCache ];
@@ -100,8 +97,8 @@
 
 - (void)setupThumbs{
     
-    CGRect __block rect = CGRectMake(5, 5, 100, 100);
-    
+    CGRect __block rect = CGRectMake(5, 50, 100, 100);
+    int i = 1;
     for (PFObject *p in self.photos) {
         
         NSData *data = [[p objectForKey:@"file"] getData];
@@ -109,12 +106,15 @@
         UIButton *b = [[UIButton alloc] initWithFrame:rect];
         [b setImage:image forState:UIControlStateNormal];
         [b setClipsToBounds:YES];
+        [b setTag:i];
+        i++;
         [b.imageView setContentMode:UIViewContentModeScaleAspectFill];
         [b setAdjustsImageWhenHighlighted:NO];
         [b addTarget:self action:@selector(showPhoto:) forControlEvents:UIControlEventTouchUpInside];
         NSLog(@"Added Rect %f,%f",rect.origin.x,rect.origin.y);
         [self.scrollView addSubview:b];
         
+ 
         
         if (rect.origin.x +105 >= self.view.bounds.size.width) {
             rect = CGRectMake(5, rect.origin.y + 105, rect.size.width, rect.size.height);
@@ -126,7 +126,7 @@
         NSLog(@"ContentSize: %f %f",rect.origin.x,rect.origin.y);
 
         [self.scrollView setContentSize:CGSizeMake(rect.origin.x,rect.origin.y)];
-        [self.scrollView setContentOffset:CGPointMake(0.0f, -45.0f) animated:YES];
+//        [self.scrollView setContentOffset:CGPointMake(0.0f, -45.0f) animated:YES];
         [self.scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 155.0f, 0.0f)];
         
         
@@ -157,6 +157,8 @@
     UIImage *image = b.imageView.image;
     
     PhotoViewController *pvc = [[PhotoViewController alloc] initWithImage:image];
+    [pvc setTitle:[NSString stringWithFormat:@"%d of %d",[sender tag],self.photos.count]];
+    
     [self.navigationController pushViewController:pvc animated:YES];
 
 }

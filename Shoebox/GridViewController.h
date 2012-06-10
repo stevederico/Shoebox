@@ -9,8 +9,6 @@
 #import "ELCImagePickerController.h"
 #import "InviteViewController.h"
 #import "PhotoViewController.h"
-#import "Group.h"
-#import "Photo.h"
 #import <UIKit/UIKit.h>
 
 @interface GridViewController : UIViewController

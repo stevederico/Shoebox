@@ -19,7 +19,7 @@
 @synthesize group;
 
 
-- (id)initWithGroup:(Group*)group{
+- (id)initWithGroup:(PFObject*)group{
 
     self = [super init];
     if (self) {

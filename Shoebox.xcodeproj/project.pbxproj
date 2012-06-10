@@ -21,9 +21,6 @@
 		7B472772157CA191007C0FF9 /* InviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B472770157CA191007C0FF9 /* InviteViewController.m */; };
 		7B472773157CA191007C0FF9 /* InviteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B472771157CA191007C0FF9 /* InviteViewController.xib */; };
 		7B472777157D25BD007C0FF9 /* SDDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B472776157D25BD007C0FF9 /* SDDataManager.m */; };
-		7B47277E157D3993007C0FF9 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B47277D157D3993007C0FF9 /* User.m */; };
-		7B472781157D39A0007C0FF9 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B472780157D39A0007C0FF9 /* Photo.m */; };
-		7B472784157D39AA007C0FF9 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B472783157D39AA007C0FF9 /* Group.m */; };
 		7B472787157D3E47007C0FF9 /* GridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B472786157D3E47007C0FF9 /* GridViewController.m */; };
 		7B47278A157D513A007C0FF9 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B472789157D513A007C0FF9 /* PhotoViewController.m */; };
 		7B47278C157D6CF8007C0FF9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B47278B157D6CF7007C0FF9 /* QuartzCore.framework */; };
@@ -79,7 +76,6 @@
 		7BB25490157C6A560084ACA8 /* SSManagedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB25467157C6A560084ACA8 /* SSManagedTableViewController.m */; };
 		7BB25491157C6A560084ACA8 /* SSManagedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB25469157C6A560084ACA8 /* SSManagedViewController.m */; };
 		7BB25492157C6A560084ACA8 /* SSRemoteManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB2546B157C6A560084ACA8 /* SSRemoteManagedObject.m */; };
-		7BB25495157C6A660084ACA8 /* ShoeboxModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7BB25493157C6A660084ACA8 /* ShoeboxModel.xcdatamodeld */; };
 		7BB2549B157C6AA60084ACA8 /* NameGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB2549A157C6AA60084ACA8 /* NameGroupViewController.m */; };
 		7BB2549F157C6ACA0084ACA8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB2549E157C6ACA0084ACA8 /* HomeViewController.m */; };
 		7BB254A1157C6B070084ACA8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB254A0157C6B070084ACA8 /* CoreData.framework */; };
@@ -109,12 +105,6 @@
 		7B472771157CA191007C0FF9 /* InviteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InviteViewController.xib; sourceTree = "<group>"; };
 		7B472775157D25BD007C0FF9 /* SDDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDDataManager.h; sourceTree = "<group>"; };
 		7B472776157D25BD007C0FF9 /* SDDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDDataManager.m; sourceTree = "<group>"; };
-		7B47277C157D3993007C0FF9 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		7B47277D157D3993007C0FF9 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		7B47277F157D39A0007C0FF9 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
-		7B472780157D39A0007C0FF9 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
-		7B472782157D39AA007C0FF9 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
-		7B472783157D39AA007C0FF9 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
 		7B472785157D3E46007C0FF9 /* GridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridViewController.h; sourceTree = "<group>"; };
 		7B472786157D3E47007C0FF9 /* GridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridViewController.m; sourceTree = "<group>"; };
 		7B472788157D5139007C0FF9 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
@@ -196,7 +186,6 @@
 		7BB25469157C6A560084ACA8 /* SSManagedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSManagedViewController.m; sourceTree = "<group>"; };
 		7BB2546A157C6A560084ACA8 /* SSRemoteManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSRemoteManagedObject.h; sourceTree = "<group>"; };
 		7BB2546B157C6A560084ACA8 /* SSRemoteManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSRemoteManagedObject.m; sourceTree = "<group>"; };
-		7BB25494157C6A660084ACA8 /* ShoeboxModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShoeboxModel.xcdatamodel; sourceTree = "<group>"; };
 		7BB25499157C6AA60084ACA8 /* NameGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameGroupViewController.h; sourceTree = "<group>"; };
 		7BB2549A157C6AA60084ACA8 /* NameGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameGroupViewController.m; sourceTree = "<group>"; };
 		7BB2549D157C6ACA0084ACA8 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -439,13 +428,6 @@
 			children = (
 				7B472775157D25BD007C0FF9 /* SDDataManager.h */,
 				7B472776157D25BD007C0FF9 /* SDDataManager.m */,
-				7BB25493157C6A660084ACA8 /* ShoeboxModel.xcdatamodeld */,
-				7B472782157D39AA007C0FF9 /* Group.h */,
-				7B472783157D39AA007C0FF9 /* Group.m */,
-				7B47277F157D39A0007C0FF9 /* Photo.h */,
-				7B472780157D39A0007C0FF9 /* Photo.m */,
-				7B47277C157D3993007C0FF9 /* User.h */,
-				7B47277D157D3993007C0FF9 /* User.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -586,7 +568,6 @@
 				7BB25490157C6A560084ACA8 /* SSManagedTableViewController.m in Sources */,
 				7BB25491157C6A560084ACA8 /* SSManagedViewController.m in Sources */,
 				7BB25492157C6A560084ACA8 /* SSRemoteManagedObject.m in Sources */,
-				7BB25495157C6A660084ACA8 /* ShoeboxModel.xcdatamodeld in Sources */,
 				7BB2549B157C6AA60084ACA8 /* NameGroupViewController.m in Sources */,
 				7BB2549F157C6ACA0084ACA8 /* HomeViewController.m in Sources */,
 				7B03172F157C96CA002DB7A7 /* ELCAlbumPickerController.m in Sources */,
@@ -596,9 +577,6 @@
 				7B031736157C96CA002DB7A7 /* ELCImagePickerController.m in Sources */,
 				7B472772157CA191007C0FF9 /* InviteViewController.m in Sources */,
 				7B472777157D25BD007C0FF9 /* SDDataManager.m in Sources */,
-				7B47277E157D3993007C0FF9 /* User.m in Sources */,
-				7B472781157D39A0007C0FF9 /* Photo.m in Sources */,
-				7B472784157D39AA007C0FF9 /* Group.m in Sources */,
 				7B472787157D3E47007C0FF9 /* GridViewController.m in Sources */,
 				7B47278A157D513A007C0FF9 /* PhotoViewController.m in Sources */,
 			);
@@ -723,19 +701,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		7BB25493157C6A660084ACA8 /* ShoeboxModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				7BB25494157C6A660084ACA8 /* ShoeboxModel.xcdatamodel */,
-			);
-			currentVersion = 7BB25494157C6A660084ACA8 /* ShoeboxModel.xcdatamodel */;
-			path = ShoeboxModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 7BB25406157C68DE0084ACA8 /* Project object */;
 }

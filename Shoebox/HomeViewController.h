@@ -7,8 +7,6 @@
 //
 
 #import "GridViewController.h"
-#import "User.h"
-#import "Photo.h"
 #import "NameGroupViewController.h"
 #import "ELCAlbumPickerController.h"
 #import "ELCImagePickerController.h"

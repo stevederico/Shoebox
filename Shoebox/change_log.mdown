@@ -13,6 +13,9 @@ Added PhotoViewController
 Added Zooming and Scrolling to PhotoViewController
 Fixed Orientation Issue
 
+
+-Fix Squeeze on Tap in GridView
+-Added Upload Photos Functionality
 -Add InviteViewController Checkmarks
 -Add InviteViewControllerDelegate
 -Add RoundedCorners

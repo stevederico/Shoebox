@@ -41,10 +41,8 @@
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
-//    NSFetchRequest *fetch = [NSFetchRequest fetchRequestWithEntityName:@"Group"];
-//    groups = [[SSManagedObject mainContext] executeFetchRequest:fetch error:nil];
-    
     PFQuery *query = [PFQuery queryWithClassName:@"Group"];
+    query.cachePolicy = kPFCachePolicyNetworkElseCache;
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         self.groups = objects;
             [self.tableView reloadData];
@@ -109,7 +107,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Group *g =  [self.groups objectAtIndex:indexPath.row];
+    PFObject *g =  [self.groups objectAtIndex:indexPath.row];
     NSLog(@"Group %@",g);
     
     GridViewController *grid = [[GridViewController alloc] initWithGroup:g];

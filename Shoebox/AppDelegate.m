@@ -19,9 +19,6 @@
                   clientKey:@"WsmsEbjX8ztmiT9N2Qxzjvj1Ye1e6rWW8D14c07D"];
     
     
-    SDDataManager *dm = [[SDDataManager alloc] init];
-    [dm monitor];
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     HomeViewController *hvc = [[HomeViewController alloc] initWithStyle:UITableViewStyleGrouped];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:hvc];

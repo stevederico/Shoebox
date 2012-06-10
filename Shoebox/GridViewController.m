@@ -29,7 +29,7 @@
         [self.view setBackgroundColor:[UIColor whiteColor]];
         self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width,  self.view.bounds.size.height)];
           [self.scrollView setContentOffset:CGPointMake(0.0f, self.scrollView.contentSize.height) animated:NO];
-        [self.scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 155.0f, 0.0f)];
+        [self.scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 175.0f, 0.0f)];
         [self.view addSubview:self.scrollView];
 
         footer = [[SDFooterButtonView alloc] initWithStyle:SDFooterButtonStyleGreen];
@@ -67,15 +67,15 @@
     UIBarButtonItem *inviteButton = [[UIBarButtonItem alloc] initWithTitle:@"Invite" style:UIBarButtonItemStyleBordered target:self  action:@selector(showInvite)];
     self.navigationItem.rightBarButtonItem = inviteButton;
 
-    [self.scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 155.0f, 0.0f)];
+    [self.scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 175.0f, 0.0f)];
 
 }
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
 
-    [self.scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 155.0f, 0.0f)];
-    [self.scrollView setContentOffset:CGPointMake(0.0f, self.scrollView.contentSize.height-250.0f) animated:NO];
+    [self.scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 175.0f, 0.0f)];
+    [self.scrollView setContentOffset:CGPointMake(0.0f, self.scrollView.contentSize.height-275.0f) animated:NO];
   
     
     NSLog(@"Height %f", self.view.bounds.size.height);
@@ -135,7 +135,7 @@
     }
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, rect.origin.y + 110, self.view.bounds.size.width, 25.0f)];
     [label setText:[NSString stringWithFormat:@"%d Photos, Last Updated %@",self.photos.count,self.title]];
-    [label setTextColor:[UIColor lightTextColor]];
+    [label setTextColor:[UIColor lightGrayColor]];
     [label setTextAlignment:UITextAlignmentCenter];
     [self.scrollView addSubview:label];
     [self.scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 175.0f, 0.0f)];

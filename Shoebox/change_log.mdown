@@ -23,7 +23,11 @@ Added Transparent Navigation Bar
 Adjusted GridView Spacing for Transparetn NavBar
 Added Numbers to PhotoViewCOntroller Title
 Added Transparent Status Bar and Spacing
+Fixed Scrollable Area on GridView
 
+-Add Photo Count to HomeViewController Cells
+-Add HomeViewController Cover Photos
+-Fix Scrollable area on GridView
 -Add NavBar Fade
 -Add Transparent StatusBar
 -Reset PhotoViewCOntroller Image Size

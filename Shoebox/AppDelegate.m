@@ -23,7 +23,7 @@
 
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    HomeViewController *hvc = [[HomeViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    HomeViewController *hvc = [[HomeViewController alloc] initWithStyle:UITableViewStylePlain];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:hvc];
     [self.window setRootViewController:nav];
 //    self.window.backgroundColor = [UIColor blackColor];

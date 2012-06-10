@@ -24,6 +24,7 @@
     self = [super init];
     if (self) {
         self.title = @"Invite Friends";
+                [self.tableView setBackgroundColor:[UIColor scrollViewTexturedBackgroundColor]];
     }
     
     

@@ -18,6 +18,10 @@
     [Parse setApplicationId:@"9sIiiAhe4l7nDsDgwrsM0FgkhZstPL4Kct8mizfT"
                   clientKey:@"WsmsEbjX8ztmiT9N2Qxzjvj1Ye1e6rWW8D14c07D"];
     
+
+    [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
+
+    
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     HomeViewController *hvc = [[HomeViewController alloc] initWithStyle:UITableViewStyleGrouped];

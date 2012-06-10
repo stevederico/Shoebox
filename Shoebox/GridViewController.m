@@ -13,7 +13,9 @@
 
 @end
 
-@implementation GridViewController
+@implementation GridViewController{
+    SDFooterButtonView *footer;
+}
 @synthesize photos = _photos;
 @synthesize group = _group;
 @synthesize scrollView = _scrollView;
@@ -24,12 +26,14 @@
     if (self) {
         self.group = group;
         self.title = [group objectForKey:@"Name"];
-        
+   
         self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width,  self.view.bounds.size.height - 50)];
+        [self.scrollView setContentOffset:CGPointMake(0.0f, -45.0f) ];
+        [self.scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 155.0f, 0.0f)];
         [self.view addSubview:self.scrollView];
-        
-        SDFooterButtonView *footer = [[SDFooterButtonView alloc] initWithStyle:SDFooterButtonStyleGreen];
-        [footer setFrame:CGRectMake(0, 350,  self.view.bounds.size.width, 50.0f)];
+
+        footer = [[SDFooterButtonView alloc] initWithStyle:SDFooterButtonStyleGreen];
+        [footer setFrame:CGRectMake(0, self.view.bounds.size.height - 100.0f,  self.view.bounds.size.width, 50.0f)];
         [footer.button setTitle:@"Add Photos" forState:UIControlStateNormal];
         [footer.button addTarget:self action:@selector(showUpload) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:footer];
@@ -52,21 +56,42 @@
 	// Do any additional setup after loading the view.
     UIBarButtonItem *inviteButton = [[UIBarButtonItem alloc] initWithTitle:@"Invite" style:UIBarButtonItemStyleBordered target:self  action:@selector(showInvite)];
     self.navigationItem.rightBarButtonItem = inviteButton;
+    [self.scrollView setContentOffset:CGPointMake(0.0f, -45.0f) ];
+    [self.scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 155.0f, 0.0f)];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+ 
+    [self.scrollView setContentOffset:CGPointMake(0.0f, -45.0f) animated:YES];
+    [self.scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 155.0f, 0.0f)];
+
+    
+    NSLog(@"Height %f", self.view.bounds.size.height);
+    NSLog(@"Place %f", self.view.bounds.size.height -65);
+    [footer setFrame:CGRectMake(0, self.view.bounds.size.height - 65.0f,  self.view.bounds.size.width, 50.0f)];
+ 
+    
+
+    
+
+    
     
     PFRelation *relation = [self.group relationforKey:@"Photos"];
     PFQuery *q = [relation query];
+    [q setCachePolicy:kPFCachePolicyNetworkElseCache ];
     [q orderByDescending:@"updatedAt"];
     [q findObjectsInBackgroundWithBlock:^(NSArray *result, NSError *error) {
         if (error) {
             // There was an error
         } else {
             // results have all the Posts the current user liked.
-            self.photos = result;
-            [self setupThumbs];
+            if ([result count]>self.photos.count) {
+                self.photos = result;
+                [self setupThumbs];
+            }
+          
         }
         
     }];
@@ -99,9 +124,10 @@
             
         }
         NSLog(@"ContentSize: %f %f",rect.origin.x,rect.origin.y);
-        [self.scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 155.0f, 0.0f)];
+
         [self.scrollView setContentSize:CGSizeMake(rect.origin.x,rect.origin.y)];
-        
+        [self.scrollView setContentOffset:CGPointMake(0.0f, -45.0f) animated:YES];
+        [self.scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 155.0f, 0.0f)];
         
         
         

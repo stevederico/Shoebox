@@ -21,6 +21,11 @@
     if (self) {
         // Custom initialization
         self.title = @"Shoebox";
+
+        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+     
+        
+   
      
     }
     return self;
@@ -40,6 +45,10 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    
+    [self.navigationController.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
+    [self.navigationController.navigationBar setTranslucent:YES];
+
     
     PFQuery *query = [PFQuery queryWithClassName:@"Group"];
     query.cachePolicy = kPFCachePolicyNetworkElseCache;

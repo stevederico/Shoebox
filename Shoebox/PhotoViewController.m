@@ -18,6 +18,7 @@
     self = [super init];
     
     if (self) {
+ 
         UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
         [scrollView setDelegate:self];
         [scrollView setContentSize:image.size];
@@ -39,7 +40,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.5];
+    [self.navigationController.navigationBar setAlpha:0.0];
+    [UIView commitAnimations];
 	// Do any additional setup after loading the view.
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+
+
+
 }
 
 - (void)viewDidUnload

@@ -20,6 +20,7 @@
     if (self) {
         // Custom initialization
         self.title = @"Name Group";
+                [self.tableView setBackgroundColor:[UIColor scrollViewTexturedBackgroundColor]];
     }
     return self;
 }

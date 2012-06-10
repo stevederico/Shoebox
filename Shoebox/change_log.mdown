@@ -21,7 +21,7 @@ Fix Squeeze on Tap in GridView
 Added Bottom Inset to GridViewController
 
 -Reset PhotoViewCOntroller Image Size
--Add Loading Indicator to the GridView While loading
+-Add Loading Indicator to the GridView While loading - Change Footer Button Text and Add Placeholder button in upper right
 -Remove spell check on Groups Name
 -Reverse Order on ImagePicker
 -Add InviteViewController Checkmarks

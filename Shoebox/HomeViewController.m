@@ -34,6 +34,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[UINavigationBar appearance] setBarStyle: UIBarStyleBlackTranslucent];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
+    self.navigationController.navigationBar.translucent = YES;
+    
+    self.wantsFullScreenLayout = YES;
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self  action: @selector(showCreateGroup)];
     self.navigationItem.rightBarButtonItem = addButton;

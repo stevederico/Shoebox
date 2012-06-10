@@ -22,7 +22,10 @@ Added Bottom Inset to GridViewController
 Added Transparent Navigation Bar
 Adjusted GridView Spacing for Transparetn NavBar
 Added Numbers to PhotoViewCOntroller Title
+Added Transparent Status Bar and Spacing
 
+-Add NavBar Fade
+-Add Transparent StatusBar
 -Reset PhotoViewCOntroller Image Size
 -Add Loading Indicator to the GridView While loading - Change Footer Button Text and Add Placeholder button in upper right
 -Remove spell check on Groups Name

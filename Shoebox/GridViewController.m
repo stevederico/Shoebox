@@ -28,7 +28,7 @@
         self.title = [group objectForKey:@"Name"];
    
         self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width,  self.view.bounds.size.height - 50)];
-//        [self.scrollView setContentOffset:CGPointMake(0.0f, -45.0f) ];
+
         [self.scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 155.0f, 0.0f)];
         [self.view addSubview:self.scrollView];
 
@@ -53,21 +53,30 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[UINavigationBar appearance] setBarStyle: UIBarStyleBlackTranslucent];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
+    self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+    self.wantsFullScreenLayout = YES;
+ 
+    
 	// Do any additional setup after loading the view.
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:nil  action:nil];
     self.navigationItem.backBarButtonItem = backButton;
     
     UIBarButtonItem *inviteButton = [[UIBarButtonItem alloc] initWithTitle:@"Invite" style:UIBarButtonItemStyleBordered target:self  action:@selector(showInvite)];
     self.navigationItem.rightBarButtonItem = inviteButton;
-//    [self.scrollView setContentOffset:CGPointMake(0.0f, -45.0f) ];
+
     [self.scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 155.0f, 0.0f)];
 
 }
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
- 
-//    [self.scrollView setContentOffset:CGPointMake(0.0f, -45.0f) animated:YES];
+
+    
+
+
     [self.scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 155.0f, 0.0f)];
 
     
@@ -97,7 +106,7 @@
 
 - (void)setupThumbs{
     
-    CGRect __block rect = CGRectMake(5, 50, 100, 100);
+    CGRect __block rect = CGRectMake(5, 70, 100, 100);
     int i = 1;
     for (PFObject *p in self.photos) {
         
@@ -126,7 +135,6 @@
         NSLog(@"ContentSize: %f %f",rect.origin.x,rect.origin.y);
 
         [self.scrollView setContentSize:CGSizeMake(rect.origin.x,rect.origin.y)];
-//        [self.scrollView setContentOffset:CGPointMake(0.0f, -45.0f) animated:YES];
         [self.scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 155.0f, 0.0f)];
         
         

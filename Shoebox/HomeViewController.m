@@ -47,7 +47,7 @@
         self.groups = objects;
             [self.tableView reloadData];
         if ([groups count]>0) {
-            NSLog(@"TOTAL ITEMS %d",[groups count]);
+            NSLog(@"TOTAL Groups %d",[groups count]);
             
         }
         

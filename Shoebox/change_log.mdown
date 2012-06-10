@@ -13,7 +13,10 @@ Added PhotoViewController
 Added Zooming and Scrolling to PhotoViewController
 Fixed Orientation Issue
 
-
+-Reset PhotoViewCOntroller Image Size
+-Add Loading Indicator to the GridView While loading
+-Remove spell check on Groups Name
+-Reverse Order on ImagePicker
 -Fix Squeeze on Tap in GridView
 -Added Upload Photos Functionality
 -Add InviteViewController Checkmarks
@@ -27,6 +30,8 @@ Fixed Orientation Issue
 -Add UIButtons to GridView
 -Add Parse Upload
 -Add Parse Sync with DB
+-Image Gallery Buttons on PhotoView
+-AirPlay Images
 
 ImagePicker
 Allowed it to push to next Controller

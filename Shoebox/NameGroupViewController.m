@@ -98,11 +98,9 @@
         return;
     }
         
- 
-    
     NSLog(@"Show Invite Screen");
-    InviteViewController *invite = [[InviteViewController alloc] initWithNibName:@"InviteViewController" bundle:nil];
-    [self.navigationController pushViewController:invite animated:YES];
+//    InviteViewController *invite = [[InviteViewController alloc] initWithNibName:@"InviteViewController" bundle:nil];
+//    [self.navigationController pushViewController:invite animated:YES];
     
 }
 

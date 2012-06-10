@@ -16,16 +16,17 @@
 @implementation GridViewController
 @synthesize photos = _photos;
 @synthesize group = _group;
+@synthesize scrollView = _scrollView;
 
 - (id)initWithGroup:(PFObject*)group{
 
     self = [super init];
     if (self) {
-        
+        self.group = group;
         self.title = [group objectForKey:@"Name"];
         
-        UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width,  self.view.bounds.size.height - 50)];
-        [self.view addSubview:scrollView];
+        self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width,  self.view.bounds.size.height - 50)];
+        [self.view addSubview:self.scrollView];
         
         SDFooterButtonView *footer = [[SDFooterButtonView alloc] initWithStyle:SDFooterButtonStyleGreen];
         [footer setFrame:CGRectMake(0, 350,  self.view.bounds.size.width, 50.0f)];
@@ -33,52 +34,13 @@
         [footer.button addTarget:self action:@selector(showUpload) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:footer];
         
+        [self.view setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
         
-        PFRelation *relation = [group relationforKey:@"Photos"];
-        
-        [[relation query] findObjectsInBackgroundWithBlock:^(NSArray *result, NSError *error) {
-            if (error) {
-                // There was an error
-            } else {
-                // results have all the Posts the current user liked.
-                CGRect __block rect = CGRectMake(5, 5, 100, 100);
-                
-                for (PFObject *p in result) {
-
-                    NSData *data = [[p objectForKey:@"file"] getData];
-                    UIImage *image = [UIImage imageWithData:data];
-                    UIButton *b = [[UIButton alloc] initWithFrame:rect];
-                    [b setImage:image forState:UIControlStateNormal];
-                    [b setClipsToBounds:YES];
-                    [b.imageView setContentMode:UIViewContentModeScaleAspectFill];
-                    [b addTarget:self action:@selector(showPhoto:) forControlEvents:UIControlEventTouchUpInside];
-                    NSLog(@"Added Rect %f,%f",rect.origin.x,rect.origin.y);
-                    [scrollView addSubview:b];
-                    
-                    
-                    if (rect.origin.x +105 >= self.view.bounds.size.width) {
-                        rect = CGRectMake(5, rect.origin.y + 105, rect.size.width, rect.size.height);
-                        
-                    }else{
-                        rect = CGRectMake(rect.origin.x + 105, rect.origin.y, rect.size.width, rect.size.height);
-                        
-                    }
-                    [scrollView setContentSize:CGSizeMake(rect.size.width, rect.size.height)];
-                    
-                    
-                    
-                    
-                }
-            }
-        }];
-        
-        
-        // Custom initialization
-    
-  
-        
-       
-        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(viewDidAppear:) 
+                                                     name:@"PhotoDone"
+                                                   object:nil];
+               
     }
     return self;
     
@@ -92,6 +54,59 @@
     self.navigationItem.rightBarButtonItem = inviteButton;
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    PFRelation *relation = [self.group relationforKey:@"Photos"];
+    PFQuery *q = [relation query];
+    [q orderByDescending:@"updatedAt"];
+    [q findObjectsInBackgroundWithBlock:^(NSArray *result, NSError *error) {
+        if (error) {
+            // There was an error
+        } else {
+            // results have all the Posts the current user liked.
+            self.photos = result;
+            [self setupThumbs];
+        }
+        
+    }];
+
+}
+
+- (void)setupThumbs{
+    
+    CGRect __block rect = CGRectMake(5, 5, 100, 100);
+    
+    for (PFObject *p in self.photos) {
+        
+        NSData *data = [[p objectForKey:@"file"] getData];
+        UIImage *image = [UIImage imageWithData:data];
+        UIButton *b = [[UIButton alloc] initWithFrame:rect];
+        [b setImage:image forState:UIControlStateNormal];
+        [b setClipsToBounds:YES];
+        [b.imageView setContentMode:UIViewContentModeScaleAspectFill];
+        [b setAdjustsImageWhenHighlighted:NO];
+        [b addTarget:self action:@selector(showPhoto:) forControlEvents:UIControlEventTouchUpInside];
+        NSLog(@"Added Rect %f,%f",rect.origin.x,rect.origin.y);
+        [self.scrollView addSubview:b];
+        
+        
+        if (rect.origin.x +105 >= self.view.bounds.size.width) {
+            rect = CGRectMake(5, rect.origin.y + 105, rect.size.width, rect.size.height);
+            
+        }else{
+            rect = CGRectMake(rect.origin.x + 105, rect.origin.y, rect.size.width, rect.size.height);
+            
+        }
+        [self.scrollView setContentSize:CGSizeMake(rect.size.width, rect.size.height)];
+        
+        
+        
+        
+    }
+
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -103,27 +118,7 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-#pragma ELCImagePickerControllerDelegate
 
-- (void)elcImagePickerController:(ELCImagePickerController *)picker didFinishPickingMediaWithInfo:(NSArray *)info{
-    
-//    NSLog(@"Images %@",info);
-//    
-//    //Save Images to DB
-//    //Push Group Name
-//    NameGroupViewController  *cvc = [[NameGroupViewController alloc] initWithStyle:UITableViewStyleGrouped];
-//    cvc.photos = info;
-//    [controller pushViewController:cvc animated:YES];
-    
-    
-    
-    
-}
-- (void)elcImagePickerControllerDidCancel:(ELCImagePickerController *)picker{
-    
-    [self dismissModalViewControllerAnimated:YES];
-    
-}
 
 #pragma GridViewController
 
@@ -145,8 +140,11 @@
     [self.navigationController presentModalViewController:nav animated:YES];
 
 }
-- (void)showUpload{
 
+#pragma ELCImagePickerControllerDelegate
+
+- (void)showUpload{
+    
     ELCAlbumPickerController *avc = [[ELCAlbumPickerController alloc] initWithStyle:UITableViewStyleGrouped];
     ELCImagePickerController *controller  = [[ELCImagePickerController alloc] initWithRootViewController:avc];
     [avc setParent:controller];  
@@ -154,6 +152,43 @@
     [self presentModalViewController:controller animated:YES];
     
     
+}
+
+
+- (void)elcImagePickerController:(ELCImagePickerController *)picker didFinishPickingMediaWithInfo:(NSArray *)info{
+    
+
+    NSArray *photos = info;
+    //add photos to group
+    
+    SDDataManager *dm = [[SDDataManager alloc] init];
+    [dm addPhotos:photos ToGroup:self.group];
+    
+    [self dismissModalViewControllerAnimated:YES];
+    
+    
+    
+    
+}
+- (void)elcImagePickerControllerDidCancel:(ELCImagePickerController *)picker{
+    
+    [self dismissModalViewControllerAnimated:YES];
+    
+}
+
+
+
+
+
+
+
+- (void) dealloc
+{
+    // If you don't remove yourself as an observer, the Notification Center
+    // will continue to try and send notification objects to the deallocated
+    // object.
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
 }
 
 @end

@@ -9,6 +9,6 @@
 
 @interface SDDataManager : NSObject
 
-
+-(void)addPhotos:(NSArray*)photos ToGroup:(PFObject*)group;
 - (void)writePhotosWithArray:(NSArray*)photos andGroupName:(NSString*)name;
 @end

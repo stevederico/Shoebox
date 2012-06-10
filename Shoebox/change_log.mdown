@@ -12,26 +12,31 @@ Added Buttons to GridView
 Added PhotoViewController
 Added Zooming and Scrolling to PhotoViewController
 Fixed Orientation Issue
+Added ScrollView to PhotoViewCOntroller
+
+6/9
+Added Upload Photos Functionality
+Added Sort GridView by Newest
+Fix Squeeze on Tap in GridView
+Added Bottom Inset to GridViewController
 
 -Reset PhotoViewCOntroller Image Size
 -Add Loading Indicator to the GridView While loading
 -Remove spell check on Groups Name
 -Reverse Order on ImagePicker
--Fix Squeeze on Tap in GridView
--Added Upload Photos Functionality
 -Add InviteViewController Checkmarks
 -Add InviteViewControllerDelegate
 -Add RoundedCorners
--Add ScrollView to PhotoViewController
--Improve Photo Quality on PhotoViewController
--Add Upload Button to GridView
--Sort Grid By Newest
 -Add Transparent NavigationBar to PhotosViewController
--Add UIButtons to GridView
--Add Parse Upload
--Add Parse Sync with DB
 -Image Gallery Buttons on PhotoView
 -AirPlay Images
+-Add Cover Photo
+-Add Delete Photo
+-Add Delete Album
+-Fix GridView ScrollView
+-Add LoginViewController with FB/Twitter Connect
+-PhotoViewController Scaling
+-Add Autorotate Support
 
 ImagePicker
 Allowed it to push to next Controller

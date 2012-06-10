@@ -98,7 +98,9 @@
             rect = CGRectMake(rect.origin.x + 105, rect.origin.y, rect.size.width, rect.size.height);
             
         }
-        [self.scrollView setContentSize:CGSizeMake(rect.size.width, rect.size.height)];
+        NSLog(@"ContentSize: %f %f",rect.origin.x,rect.origin.y);
+        [self.scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 155.0f, 0.0f)];
+        [self.scrollView setContentSize:CGSizeMake(rect.origin.x,rect.origin.y)];
         
         
         

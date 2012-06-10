@@ -15,6 +15,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [Parse setApplicationId:@"9sIiiAhe4l7nDsDgwrsM0FgkhZstPL4Kct8mizfT"
+                  clientKey:@"WsmsEbjX8ztmiT9N2Qxzjvj1Ye1e6rWW8D14c07D"];
+    
     
     SDDataManager *dm = [[SDDataManager alloc] init];
     [dm monitor];
@@ -25,6 +28,8 @@
     [self.window setRootViewController:nav];
     self.window.backgroundColor = [UIColor blackColor];
     [self.window makeKeyAndVisible];
+  
+    
     return YES;
 }
 

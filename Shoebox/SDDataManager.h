@@ -5,6 +5,7 @@
 //  Created by Stephen Derico on 6/4/12.
 //  Copyright (c) 2012 Bixby Apps. All rights reserved.
 //
+#import <AssetsLibrary/AssetsLibrary.h>
 #import "User.h"
 #import "Group.h"
 #import "Photo.h"

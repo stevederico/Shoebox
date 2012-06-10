@@ -33,10 +33,9 @@ Allowed it to push to next Controller
 
 SDKit
 -Improve front margin on SDPlaceholderCell
--Remove DS Store
--Only only Docs
 -Add Settings VC
 -ADd Parse Sync Class
 -Add ImagePicker
 -Add RoundedCorners UINavigationBar
 -SDFooterButtonView initWithStyle:andText;
+-Add SignUp/SignIn VC

@@ -36,28 +36,6 @@
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:nil  action:nil];
     self.navigationItem.backBarButtonItem = backButton;
     
-    CALayer *capa = [self.navigationController navigationBar].layer;
-    [capa setShadowColor: [[UIColor blackColor] CGColor]];
-    [capa setShadowOpacity:0.85f];
-    [capa setShadowOffset: CGSizeMake(0.0f, 1.5f)];
-    [capa setShadowRadius:2.0f];  
-    [capa setShouldRasterize:YES];
-    
-    
-    //Round
-    CGRect bounds = capa.bounds;
-    bounds.size.height += 10.0f;    //I'm reserving enough room for the shadow
-    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:bounds 
-                                                   byRoundingCorners:(UIRectCornerTopLeft | UIRectCornerTopRight)
-                                                         cornerRadii:CGSizeMake(10.0, 10.0)];
-    
-    CAShapeLayer *maskLayer = [CAShapeLayer layer];
-    maskLayer.frame = bounds;
-    maskLayer.path = maskPath.CGPath;
-    
-    [capa addSublayer:maskLayer];
-    capa.mask = maskLayer;
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated{

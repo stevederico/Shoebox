@@ -26,19 +26,19 @@
     if (self) {
         self.group = group;
         self.title = [group objectForKey:@"Name"];
-   
-        self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width,  self.view.bounds.size.height + 20)];
-
+        [self.view setBackgroundColor:[UIColor whiteColor]];
+        self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width,  self.view.bounds.size.height)];
+          [self.scrollView setContentOffset:CGPointMake(0.0f, self.scrollView.contentSize.height) animated:NO];
         [self.scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 155.0f, 0.0f)];
         [self.view addSubview:self.scrollView];
 
         footer = [[SDFooterButtonView alloc] initWithStyle:SDFooterButtonStyleGreen];
-        [footer setFrame:CGRectMake(0, self.view.bounds.size.height - 65.0f,  self.view.bounds.size.width, 50.0f)];
+        [footer setFrame:CGRectZero];
         [footer.button setTitle:@"Add Photos" forState:UIControlStateNormal];
         [footer.button addTarget:self action:@selector(showUpload) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:footer];
         
-        [self.view setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(viewDidAppear:) 
@@ -58,7 +58,7 @@
     self.navigationController.navigationBar.translucent = YES;
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
     self.wantsFullScreenLayout = YES;
- 
+      [self.scrollView setContentOffset:CGPointMake(0.0f, self.scrollView.contentSize.height) animated:NO];
     
 	// Do any additional setup after loading the view.
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:nil  action:nil];
@@ -75,7 +75,8 @@
     [super viewDidAppear:animated];
 
     [self.scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 155.0f, 0.0f)];
-
+    [self.scrollView setContentOffset:CGPointMake(0.0f, self.scrollView.contentSize.height-250.0f) animated:NO];
+  
     
     NSLog(@"Height %f", self.view.bounds.size.height);
     NSLog(@"Place %f", self.view.bounds.size.height -65);
@@ -84,7 +85,7 @@
     PFRelation *relation = [self.group relationforKey:@"Photos"];
     PFQuery *q = [relation query];
     [q setCachePolicy:kPFCachePolicyNetworkElseCache ];
-    [q orderByDescending:@"updatedAt"];
+    [q orderByAscending:@"updatedAt"];
     [q findObjectsInBackgroundWithBlock:^(NSArray *result, NSError *error) {
         if (error) {
             // There was an error
@@ -120,8 +121,6 @@
         NSLog(@"Added Rect %f,%f",rect.origin.x,rect.origin.y);
         [self.scrollView addSubview:b];
         
- 
-        
         if (rect.origin.x +105 >= self.view.bounds.size.width) {
             rect = CGRectMake(5, rect.origin.y + 105, rect.size.width, rect.size.height);
             
@@ -129,14 +128,18 @@
             rect = CGRectMake(rect.origin.x + 105, rect.origin.y, rect.size.width, rect.size.height);
             
         }
+        
         NSLog(@"ContentSize: %f %f",rect.origin.x,rect.origin.y);
 
         [self.scrollView setContentSize:CGSizeMake(rect.origin.x,rect.origin.y)];
-        [self.scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 155.0f, 0.0f)];
-        
-        
-        
     }
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, rect.origin.y + 110, self.view.bounds.size.width, 25.0f)];
+    [label setText:[NSString stringWithFormat:@"%d Photos, Last Updated %@",self.photos.count,self.title]];
+    [label setTextColor:[UIColor lightTextColor]];
+    [label setTextAlignment:UITextAlignmentCenter];
+    [self.scrollView addSubview:label];
+    [self.scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 175.0f, 0.0f)];
+    [self.scrollView setContentOffset:CGPointMake(0.0f, self.scrollView.contentSize.height-275.0f) animated:NO];
 
 }
 

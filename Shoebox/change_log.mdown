@@ -24,7 +24,10 @@ Adjusted GridView Spacing for Transparetn NavBar
 Added Numbers to PhotoViewCOntroller Title
 Added Transparent Status Bar and Spacing
 Fixed Scrollable Area on GridView
+Reversed GridView Ordering and Added Photos Label
 
+-Add Swipe Gallery to PhotoViewCOntroller
+-Fix InviteViewController Top Spacing
 -Add Photo Count to HomeViewController Cells
 -Add HomeViewController Cover Photos
 -Fix Scrollable area on GridView
@@ -47,6 +50,7 @@ Fixed Scrollable Area on GridView
 -Add LoginViewController with FB/Twitter Connect
 -PhotoViewController Scaling
 -Add Autorotate Support
+-Add SettingsViewController
 
 ImagePicker
 Allowed it to push to next Controller

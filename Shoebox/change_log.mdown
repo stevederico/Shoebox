@@ -26,6 +26,13 @@ Added Transparent Status Bar and Spacing
 Fixed Scrollable Area on GridView
 Reversed GridView Ordering and Added Photos Label
 
+-Add HomeViewControler Inset
+-Fix Scroll to Bottom on Groups of 3
+-Fix Label on Scroll
+-Pick Photos Botton Name
+-Pick Photos Needs to Scroll To Bottom
+-Fix Initial Download WaitTime
+-Fix Boucning Label 
 -Add Swipe Gallery to PhotoViewCOntroller
 -Fix InviteViewController Top Spacing
 -Add Photo Count to HomeViewController Cells

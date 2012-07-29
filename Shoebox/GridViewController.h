@@ -11,9 +11,13 @@
 #import "InviteViewController.h"
 #import "PhotoViewController.h"
 #import <UIKit/UIKit.h>
+#import "EGOPhotoViewController.h"
+#import "EGOPhotoSource.h"
+
 
 @interface GridViewController : SSCollectionViewController
 @property (nonatomic, strong) NSArray  *photos;
+@property (nonatomic, strong) NSMutableArray *images;
 @property (nonatomic, strong) PFObject *group;
 
 - (id)initWithGroup:(PFObject*)group;

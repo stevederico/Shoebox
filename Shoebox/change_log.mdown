@@ -29,44 +29,40 @@ Reversed GridView Ordering and Added Photos Label
 July 28th, 2012
 Reversed Photo Table
 Added ARC Support to ELCImagePicker
+Added SSCollectionView
+Added PhotoViewer
 
-
--Add HomeViewControler Inset
--Fix Scroll to Bottom on Groups of 3
--Fix Label on Scroll
--Pick Photos Botton Name
--Pick Photos Needs to Scroll To Bottom
--Fix Initial Download WaitTime
--Fix Boucning Label 
+-Add Animation for Photo Upload
+-Reverse Order for Album View
 -Add Swipe Gallery to PhotoViewCOntroller
--Fix InviteViewController Top Spacing
+-Add User Accounts
+-Add Invite System
+-Add Pull to Refresh to GridView 
+-Move Photo Count and Last Updated to Pull to Refresh
+
 -Add Photo Count to HomeViewController Cells
 -Add HomeViewController Cover Photos
--Fix Scrollable area on GridView
--Add NavBar Fade
--Add Transparent StatusBar
+-Fix Initial Download WaitTime
 -Reset PhotoViewCOntroller Image Size
 -Add Loading Indicator to the GridView While loading - Change Footer Button Text and Add Placeholder button in upper right
 -Remove spell check on Groups Name
--Reverse Order on ImagePicker
+
 -Add InviteViewController Checkmarks
 -Add InviteViewControllerDelegate
 -Add RoundedCorners
--Add Transparent NavigationBar to PhotosViewController
--Image Gallery Buttons on PhotoView
 -AirPlay Images
 -Add Cover Photo
 -Add Delete Photo
 -Add Delete Album
--Fix GridView ScrollView
+
 -Add LoginViewController with FB/Twitter Connect
--PhotoViewController Scaling
 -Add Autorotate Support
 -Add SettingsViewController
 
+-Add Uploaders Name to PhotoView
+-Change Photo "Copy" to "Message"
 
--Add Pull to Refresh to GridView 
--Move Photo Count and Last Updated to Pull to Refresh
+
 
 ImagePicker
 Allowed it to push to next Controller

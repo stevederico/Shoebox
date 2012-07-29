@@ -18,6 +18,17 @@
 }
 @synthesize photos = _photos;
 @synthesize group = _group;
+@synthesize images = _images;
+
+- (void) dealloc
+{
+    // If you don't remove yourself as an observer, the Notification Center
+    // will continue to try and send notification objects to the deallocated
+    // object.
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+}
+
 
 - (id)initWithGroup:(PFObject*)group{
 
@@ -26,7 +37,7 @@
         self.group = group;
         self.title = [group objectForKey:@"Name"];
         self.collectionView.rowSpacing = 5.0;
-
+        self.images = [[NSMutableArray alloc] init];
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(viewDidAppear:) 
@@ -65,7 +76,13 @@
             if ([result count]>self.photos.count) {
                 self.photos = result;
                 [self.collectionView reloadData];
-                //                [self setupThumbs];
+                for (PFObject *p in self.photos) {
+                    NSData *data = [[p objectForKey:@"file"] getData];
+                    UIImage *image = [UIImage imageWithData:data];
+                    EGOQuickPhoto *photo = [[EGOQuickPhoto alloc] initWithImage:image];
+                    [self.images addObject:photo];
+
+                }
             }
             
         }
@@ -88,27 +105,7 @@
 
 
 
-#pragma GridViewController
 
-
--(void)showPhoto:(UIImage*)_image{
-    
-
-    
-    PhotoViewController *pvc = [[PhotoViewController alloc] initWithImage:_image];
-//    [pvc setTitle:[NSString stringWithFormat:@"%d of %d",[sender tag],self.photos.count]];
-    
-    [self.navigationController pushViewController:pvc animated:YES];
-
-}
-
-- (void)showInvite{
-
-    InviteViewController *ivc = [[InviteViewController alloc] initWithGroup:self.group];
-        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:ivc];
-    [self.navigationController presentModalViewController:nav animated:YES];
-
-}
 
 #pragma ELCImagePickerControllerDelegate
 
@@ -144,13 +141,31 @@
 }
 
 
-- (void) dealloc
-{
-    // If you don't remove yourself as an observer, the Notification Center
-    // will continue to try and send notification objects to the deallocated
-    // object.
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+#pragma GridViewController
 
+
+-(void)showPhoto:(UIImage*)_image{
+    
+    
+    
+//    PhotoViewController *pvc = [[PhotoViewController alloc] initWithImage:_image];
+    //    [pvc setTitle:[NSString stringWithFormat:@"%d of %d",[sender tag],self.photos.count]];
+
+    EGOQuickPhotoSource *source = [[EGOQuickPhotoSource alloc] initWithPhotos:self.images];
+    NSLog(@"%d",self.images.count);
+
+    EGOPhotoViewController *pvc = [[EGOPhotoViewController alloc] initWithPhotoSource:source];
+    [self.navigationController pushViewController:pvc animated:YES];
+    
+    
+}
+
+- (void)showInvite{
+    
+    InviteViewController *ivc = [[InviteViewController alloc] initWithGroup:self.group];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:ivc];
+    [self.navigationController presentModalViewController:nav animated:YES];
+    
 }
 
 #pragma mark - SSCollectionViewDataSource
@@ -187,7 +202,6 @@
     
 
 }
-
 
 #pragma mark - SSCollectionViewDelegate
 

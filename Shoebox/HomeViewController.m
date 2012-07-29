@@ -23,7 +23,8 @@
         self.title = @"Shoebox";
 
         self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
-     
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(logout)];
+
     }
     return self;
 }
@@ -32,7 +33,9 @@
 {
     [super viewDidLoad];
     
-    self.wantsFullScreenLayout = YES;
+
+    [self checkCurrentUser];
+
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self  action: @selector(showCreateGroup)];
     self.navigationItem.rightBarButtonItem = addButton;
@@ -145,6 +148,30 @@
 
     [self dismissModalViewControllerAnimated:YES];
     
+}
+
+- (void)logout{
+
+    [PFUser logOut];
+    
+    [self checkCurrentUser];
+    
+
+
+}
+
+- (void)checkCurrentUser{
+
+    PFUser *currentUser = [PFUser currentUser];
+    if (currentUser) {
+        // do stuff with the user
+    } else {
+        // show the signup or login screen
+        
+        LoginViewController *lvc = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:lvc];
+        [self.navigationController presentModalViewController:nav animated:YES];
+    }
 }
 
 

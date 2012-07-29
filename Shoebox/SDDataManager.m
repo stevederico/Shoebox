@@ -16,6 +16,7 @@
     PFObject *group = [PFObject objectWithClassName:@"Group"];
     [group setValue:name forKey:@"Name"];
     [group setValue:@"ME" forKey:@"User"];
+    group.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
     PFRelation *relation = [group relationforKey:@"Photos"];
     [group save];
 

@@ -110,6 +110,17 @@
 #pragma ELCImagePickerControllerDelegate
 
 - (void)showUpload{
+    PFQuery *query = [PFUser query];
+    [query getFirstObject];
+    [query whereKey:@"email" equalTo:@"stevebay22@gmail.com"];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        PFUser *friend = (PFUser*)object;
+        [self.group.ACL setReadAccess:YES forUser:friend];
+        [self.group.ACL setWriteAccess:YES forUser:friend];
+    }];
+
+    
+   
     
     ELCAlbumPickerController *avc = [[ELCAlbumPickerController alloc] initWithStyle:UITableViewStyleGrouped];
     ELCImagePickerController *controller  = [[ELCImagePickerController alloc] initWithRootViewController:avc];

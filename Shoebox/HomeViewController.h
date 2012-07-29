@@ -11,6 +11,8 @@
 #import "ELCAlbumPickerController.h"
 #import "ELCImagePickerController.h"
 #import <UIKit/UIKit.h>
+#import "LoginViewController.h"
+#import "SignUpViewController.h"
 
 
 @interface HomeViewController : UITableViewController <ELCImagePickerControllerDelegate>{

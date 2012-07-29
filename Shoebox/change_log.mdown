@@ -37,6 +37,9 @@ Added Green Checkmarks
 added Jump to Photo
 
 
+July 29th, 2012
+Added User Login
+Added User-Only Objects
 
 
 
@@ -63,9 +66,9 @@ LOGIN
 -Add LoginViewController with FB/Twitter Connect
 
 PHOTO GALLERY
--Jump to specific photo on tap
 -Add Uploaders Name to PhotoView
 -Change Photo "Copy" to "Message"
+-Save button doesn't work when jumped to
 
 GRID ALBUM View
 -Add Loading Indicator to the GridView While loading 
@@ -81,9 +84,12 @@ MISC
 -Add Delete Album
 -Add Core Data Sync
 
+-fix symbols in Group name bug
+-add invite by email
 
-
-
+-add to lowercase
+-animate photo upload on grid
+-add username to photo upload
 
 
 

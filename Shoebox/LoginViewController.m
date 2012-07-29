@@ -66,7 +66,7 @@
 
 - (void)login{
 
-    [PFUser logInWithUsernameInBackground:self.emailTextField.text password:self.passwordTextField.text
+    [PFUser logInWithUsernameInBackground:[self.emailTextField.text lowercaseString] password:[self.passwordTextField.text lowercaseString]
                                     block:^(PFUser *user, NSError *error) {
                                         if (user) {
                                             [self dismissModalViewControllerAnimated:YES];

@@ -68,9 +68,9 @@
 
 - (IBAction)SignUp:(id)sender {
     PFUser *user = [PFUser user];
-    user.username = self.emailField.text;
+    user.username = [self.emailField.text lowercaseString];
     user.password = self.passwordField.text;
-    user.email = self.emailField.text;
+    user.email = [self.emailField.text lowercaseString];
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {

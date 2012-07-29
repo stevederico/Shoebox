@@ -67,6 +67,8 @@
     SDPlaceholderCell *cell = (SDPlaceholderCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[SDPlaceholderCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+        [[cell textField] setAutocorrectionType:UITextAutocorrectionTypeNo];
+        [[cell textField] setAutocapitalizationType:UITextAutocapitalizationTypeNone];
     }
     // Configure the cell...
     

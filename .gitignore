@@ -13,3 +13,5 @@ build/*
 xcuserdata
 profile
 *.moved-aside
+.DS_Store
+Shoebox.xcodeproj/project.xcworkspace/contents.xcworkspacedata Shoebox.xcodeproj/project.xcworkspace/xcuserdata

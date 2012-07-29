@@ -15,7 +15,11 @@
 #import "EGOPhotoSource.h"
 
 
-@interface GridViewController : SSCollectionViewController
+@interface GridViewController : SSCollectionViewController{
+    
+    NSInteger cIndex;
+
+}
 @property (nonatomic, strong) NSArray  *photos;
 @property (nonatomic, strong) NSMutableArray *images;
 @property (nonatomic, strong) PFObject *group;

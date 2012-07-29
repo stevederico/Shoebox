@@ -31,42 +31,62 @@ Reversed Photo Table
 Added ARC Support to ELCImagePicker
 Added SSCollectionView
 Added PhotoViewer
+Added Swipe Photo Gallery
+Removed Spell Check on Group Names
+Added Green Checkmarks
+added Jump to Photo
 
--Add Animation for Photo Upload
--Reverse Order for Album View
--Add Swipe Gallery to PhotoViewCOntroller
--Add User Accounts
--Add Invite System
--Add Pull to Refresh to GridView 
--Move Photo Count and Last Updated to Pull to Refresh
 
--Add Photo Count to HomeViewController Cells
+
+
+
+HOME
 -Add HomeViewController Cover Photos
+-Add Photo Count to HomeViewController Cells
+-Add SettingsViewController
 -Fix Initial Download WaitTime
--Reset PhotoViewCOntroller Image Size
--Add Loading Indicator to the GridView While loading - Change Footer Button Text and Add Placeholder button in upper right
--Remove spell check on Groups Name
+-Show Invite after every group create
+-Tabbar?
 
+INVITE
+-Add Invite System
 -Add InviteViewController Checkmarks
 -Add InviteViewControllerDelegate
+-Add Skip button if after group
+
+APPEARANCE
 -Add RoundedCorners
+-Add Autorotate Support
+
+LOGIN
+-Add User Accounts
+-Add LoginViewController with FB/Twitter Connect
+
+PHOTO GALLERY
+-Jump to specific photo on tap
+-Add Uploaders Name to PhotoView
+-Change Photo "Copy" to "Message"
+
+GRID ALBUM View
+-Add Loading Indicator to the GridView While loading 
+-Move Photo Count and Last Updated to Pull to Refresh
+-Add Pull to Refresh to GridView 
+-Add Animation for Photo Upload
+-Reverse Order for Album View
+
+MISC
 -AirPlay Images
 -Add Cover Photo
 -Add Delete Photo
 -Add Delete Album
-
--Add LoginViewController with FB/Twitter Connect
--Add Autorotate Support
--Add SettingsViewController
-
--Add Uploaders Name to PhotoView
--Change Photo "Copy" to "Message"
+-Add Core Data Sync
 
 
 
-ImagePicker
-Allowed it to push to next Controller
--Change Checkmarks to Green
+
+
+
+
 
 
 

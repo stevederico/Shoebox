@@ -145,16 +145,12 @@
 
 
 -(void)showPhoto:(UIImage*)_image{
-    
-    
-    
-//    PhotoViewController *pvc = [[PhotoViewController alloc] initWithImage:_image];
-    //    [pvc setTitle:[NSString stringWithFormat:@"%d of %d",[sender tag],self.photos.count]];
 
     EGOQuickPhotoSource *source = [[EGOQuickPhotoSource alloc] initWithPhotos:self.images];
     NSLog(@"%d",self.images.count);
 
     EGOPhotoViewController *pvc = [[EGOPhotoViewController alloc] initWithPhotoSource:source];
+    pvc.currentPhotoIndex = cIndex;
     [self.navigationController pushViewController:pvc animated:YES];
     
     
@@ -194,6 +190,8 @@
 }
 
 - (void)collectionView:(SSCollectionView *)aCollectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    cIndex = indexPath.row;
     
     PFObject *p = [self.photos objectAtIndex:indexPath.row];
     NSData *data = [[p objectForKey:@"file"] getData];

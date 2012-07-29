@@ -386,6 +386,13 @@
 	
 }
 
+- (void)setCurrentPhotoIndex:(NSInteger)page{
+	
+    _pageIndex = page;
+	
+	
+}
+
 
 #pragma mark -
 #pragma mark Popver ContentSize Observing

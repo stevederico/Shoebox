@@ -78,6 +78,7 @@
 @property(nonatomic,assign) BOOL _fromPopover;
 
 - (NSInteger)currentPhotoIndex;
+- (void)setCurrentPhotoIndex:(NSInteger)page;
 - (void)moveToPhotoAtIndex:(NSInteger)index animated:(BOOL)animated;
 
 @end

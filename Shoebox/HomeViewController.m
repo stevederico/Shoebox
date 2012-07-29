@@ -24,9 +24,6 @@
 
         self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
      
-        
-   
-     
     }
     return self;
 }
@@ -35,13 +32,7 @@
 {
     [super viewDidLoad];
     
-    [[UINavigationBar appearance] setBarStyle: UIBarStyleBlackTranslucent];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
-    self.navigationController.navigationBar.translucent = YES;
-    
     self.wantsFullScreenLayout = YES;
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self  action: @selector(showCreateGroup)];
     self.navigationItem.rightBarButtonItem = addButton;
@@ -53,26 +44,17 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    
-    [self.navigationController.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
-    [self.navigationController.navigationBar setTranslucent:YES];
-
-    
+        
     PFQuery *query = [PFQuery queryWithClassName:@"Group"];
     query.cachePolicy = kPFCachePolicyNetworkElseCache;
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         self.groups = objects;
-            [self.tableView reloadData];
+        [self.tableView reloadData];
         if ([groups count]>0) {
             NSLog(@"TOTAL Groups %d",[groups count]);
             
-        }
-        
+        }        
     }];
-    
-   
-    
-
 
 }
 
@@ -115,6 +97,7 @@
     // Configure the cell...
     cell.textLabel.text = [[self.groups objectAtIndex:indexPath.row] objectForKey:@"Name"];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
 //    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",[[[self.groups objectAtIndex:indexPath.row] objectForKey:@"Photos"] count]];
     return cell;
 }

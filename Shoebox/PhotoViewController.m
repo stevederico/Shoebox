@@ -41,11 +41,6 @@
 {
     [super viewDidLoad];
     
-    [[UINavigationBar appearance] setBarStyle: UIBarStyleBlackTranslucent];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
-    self.navigationController.navigationBar.translucent = YES;
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-    self.wantsFullScreenLayout = YES;
 
     
     [UIView beginAnimations:nil context:NULL];

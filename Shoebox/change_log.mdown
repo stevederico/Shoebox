@@ -26,6 +26,11 @@ Added Transparent Status Bar and Spacing
 Fixed Scrollable Area on GridView
 Reversed GridView Ordering and Added Photos Label
 
+July 28th, 2012
+Reversed Photo Table
+Added ARC Support to ELCImagePicker
+
+
 -Add HomeViewControler Inset
 -Fix Scroll to Bottom on Groups of 3
 -Fix Label on Scroll
@@ -59,10 +64,14 @@ Reversed GridView Ordering and Added Photos Label
 -Add Autorotate Support
 -Add SettingsViewController
 
+
+-Add Pull to Refresh to GridView 
+-Move Photo Count and Last Updated to Pull to Refresh
+
 ImagePicker
 Allowed it to push to next Controller
 -Change Checkmarks to Green
--Reverse Order
+
 
 
 SDKit

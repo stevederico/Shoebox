@@ -10,3 +10,9 @@
 [submodule "Submodule/ELCImagePickerController"]
 	path = Submodule/ELCImagePickerController
 	url = git@github.com:stevederico/ELCImagePickerController.git
+[submodule "sstoolkit"]
+	path = sstoolkit
+	url = git@github.com:samsoffes/sstoolkit.git
+[submodule "Submodule/sstoolkit"]
+	path = Submodule/sstoolkit
+	url = git@github.com:samsoffes/sstoolkit.git

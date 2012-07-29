@@ -8,7 +8,7 @@
 
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "GridViewController.h"
-
+#import "SDFooterButtonView.h"
 @interface GridViewController ()
 
 @end
@@ -53,10 +53,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[UINavigationBar appearance] setBarStyle: UIBarStyleBlackTranslucent];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
-    self.navigationController.navigationBar.translucent = YES;
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+
+
+
     self.wantsFullScreenLayout = YES;
       [self.scrollView setContentOffset:CGPointMake(0.0f, self.scrollView.contentSize.height) animated:NO];
     
@@ -133,13 +132,13 @@
 
         [self.scrollView setContentSize:CGSizeMake(rect.origin.x,rect.origin.y)];
     }
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, rect.origin.y + 110, self.view.bounds.size.width, 25.0f)];
-    [label setText:[NSString stringWithFormat:@"%d Photos, Last Updated %@",self.photos.count,self.title]];
-    [label setTextColor:[UIColor lightGrayColor]];
-    [label setTextAlignment:UITextAlignmentCenter];
-    [self.scrollView addSubview:label];
-    [self.scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 175.0f, 0.0f)];
-    [self.scrollView setContentOffset:CGPointMake(0.0f, self.scrollView.contentSize.height-275.0f) animated:NO];
+//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, rect.origin.y + 110, self.view.bounds.size.width, 25.0f)];
+//    [label setText:[NSString stringWithFormat:@"%d Photos, Last Updated %@",self.photos.count,self.title]];
+//    [label setTextColor:[UIColor lightGrayColor]];
+//    [label setTextAlignment:UITextAlignmentCenter];
+//    [self.scrollView addSubview:label];
+//    [self.scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 175.0f, 0.0f)];
+//    [self.scrollView setContentOffset:CGPointMake(0.0f, self.scrollView.contentSize.height-275.0f) animated:NO];
 
 }
 
@@ -213,11 +212,6 @@
     [self dismissModalViewControllerAnimated:YES];
     
 }
-
-
-
-
-
 
 
 - (void) dealloc

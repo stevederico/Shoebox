@@ -14,5 +14,5 @@
     #import <CoreData/CoreData.h>
     #import "SDKit.h"
     #import "SSDataKit.h"
-#import <Parse/Parse.h>
+    #import <Parse/Parse.h>
 #endif

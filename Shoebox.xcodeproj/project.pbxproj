@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7B18558515C4F18600166404 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B18558415C4F18600166404 /* Parse.framework */; };
+		7B18576615C4F5F400166404 /* libSSToolkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B18575D15C4F5B800166404 /* libSSToolkit.a */; };
+		7B18576715C4F62000166404 /* SSToolkitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7B18576115C4F5B800166404 /* SSToolkitResources.bundle */; };
+		7B18576915C4F72D00166404 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B18576815C4F72D00166404 /* StoreKit.framework */; };
 		7B472772157CA191007C0FF9 /* InviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B472770157CA191007C0FF9 /* InviteViewController.m */; };
 		7B472773157CA191007C0FF9 /* InviteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B472771157CA191007C0FF9 /* InviteViewController.xib */; };
 		7B472777157D25BD007C0FF9 /* SDDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B472776157D25BD007C0FF9 /* SDDataManager.m */; };
@@ -85,8 +88,48 @@
 		7BB254D0157C86CD0084ACA8 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB254CF157C86CD0084ACA8 /* AssetsLibrary.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		7B18575C15C4F5B800166404 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B18575215C4F5B700166404 /* SSToolkit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = SSToolkit;
+		};
+		7B18575E15C4F5B800166404 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B18575215C4F5B700166404 /* SSToolkit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B239101D1357DC3E00ADE21B;
+			remoteInfo = SSToolkitTests;
+		};
+		7B18576015C4F5B800166404 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B18575215C4F5B700166404 /* SSToolkit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B2C507EA151BA64400E94614;
+			remoteInfo = SSToolkitResources;
+		};
+		7B18576215C4F5E400166404 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B18575215C4F5B700166404 /* SSToolkit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = SSToolkit;
+		};
+		7B18576415C4F5E400166404 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B18575215C4F5B700166404 /* SSToolkit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B2C507E9151BA64400E94614;
+			remoteInfo = SSToolkitResources;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		7B18558415C4F18600166404 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		7B18575215C4F5B700166404 /* SSToolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSToolkit.xcodeproj; path = Vendor/SSToolkit/SSToolkit.xcodeproj; sourceTree = "<group>"; };
+		7B18576815C4F72D00166404 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		7B47276F157CA191007C0FF9 /* InviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteViewController.h; sourceTree = "<group>"; };
 		7B472770157CA191007C0FF9 /* InviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteViewController.m; sourceTree = "<group>"; };
 		7B472771157CA191007C0FF9 /* InviteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InviteViewController.xib; sourceTree = "<group>"; };
@@ -204,6 +247,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B18576915C4F72D00166404 /* StoreKit.framework in Frameworks */,
+				7B18576615C4F5F400166404 /* libSSToolkit.a in Frameworks */,
 				7B7BFC3515831C38009DA726 /* Security.framework in Frameworks */,
 				7B7BFC3315831C32009DA726 /* libz.1.1.3.dylib in Frameworks */,
 				7B7BFC3115831C24009DA726 /* MobileCoreServices.framework in Frameworks */,
@@ -223,6 +268,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B18575315C4F5B700166404 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7B18575D15C4F5B800166404 /* libSSToolkit.a */,
+				7B18575F15C4F5B800166404 /* SSToolkitTests.app */,
+				7B18576115C4F5B800166404 /* SSToolkitResources.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		7BAD4A6B15C4DEDB009B8828 /* ELCImagePickerController */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +332,8 @@
 		7BB25412157C68DE0084ACA8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7B18576815C4F72D00166404 /* StoreKit.framework */,
+				7B18575215C4F5B700166404 /* SSToolkit.xcodeproj */,
 				7B18558415C4F18600166404 /* Parse.framework */,
 				7BAD4A6B15C4DEDB009B8828 /* ELCImagePickerController */,
 				7BB2542A157C6A560084ACA8 /* SDKit */,
@@ -485,6 +542,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				7B18576315C4F5E400166404 /* PBXTargetDependency */,
+				7B18576515C4F5E400166404 /* PBXTargetDependency */,
 			);
 			name = Shoebox;
 			productName = Shoebox;
@@ -525,6 +584,12 @@
 			mainGroup = 7BB25404157C68DE0084ACA8;
 			productRefGroup = 7BB25410157C68DE0084ACA8 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 7B18575315C4F5B700166404 /* Products */;
+					ProjectRef = 7B18575215C4F5B700166404 /* SSToolkit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				7BB2540E157C68DE0084ACA8 /* Shoebox */,
@@ -532,12 +597,37 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		7B18575D15C4F5B800166404 /* libSSToolkit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSSToolkit.a;
+			remoteRef = 7B18575C15C4F5B800166404 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7B18575F15C4F5B800166404 /* SSToolkitTests.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = SSToolkitTests.app;
+			remoteRef = 7B18575E15C4F5B800166404 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7B18576115C4F5B800166404 /* SSToolkitResources.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SSToolkitResources.bundle;
+			remoteRef = 7B18576015C4F5B800166404 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		7BB2540D157C68DE0084ACA8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				7BB2541E157C68DE0084ACA8 /* InfoPlist.strings in Resources */,
+				7B18576715C4F62000166404 /* SSToolkitResources.bundle in Resources */,
 				7BB2546C157C6A560084ACA8 /* SDFooterButtonView.html in Resources */,
 				7BB2546D157C6A560084ACA8 /* SDPatternCell.html in Resources */,
 				7BB2546E157C6A560084ACA8 /* SDPlaceholderCell.html in Resources */,
@@ -615,6 +705,19 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		7B18576315C4F5E400166404 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SSToolkit;
+			targetProxy = 7B18576215C4F5E400166404 /* PBXContainerItemProxy */;
+		};
+		7B18576515C4F5E400166404 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SSToolkitResources;
+			targetProxy = 7B18576415C4F5E400166404 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		7BB2541C157C68DE0084ACA8 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -684,8 +787,13 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Shoebox/Shoebox-Prefix.pch";
+				HEADER_SEARCH_PATHS = Vendor/SSToolkit;
 				INFOPLIST_FILE = "Shoebox/Shoebox-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "28056BA8-7B22-441B-93C7-4F62105F9BA8";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "28056BA8-7B22-441B-93C7-4F62105F9BA8";
@@ -704,8 +812,13 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Shoebox/Shoebox-Prefix.pch";
+				HEADER_SEARCH_PATHS = Vendor/SSToolkit;
 				INFOPLIST_FILE = "Shoebox/Shoebox-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "28056BA8-7B22-441B-93C7-4F62105F9BA8";
 				WRAPPER_EXTENSION = app;

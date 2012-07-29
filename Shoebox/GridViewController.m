@@ -39,7 +39,6 @@
         [self.view addSubview:footer];
         
 
-        
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(viewDidAppear:) 
                                                      name:@"PhotoDone"
@@ -53,8 +52,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-
 
     self.wantsFullScreenLayout = YES;
       [self.scrollView setContentOffset:CGPointMake(0.0f, self.scrollView.contentSize.height) animated:NO];

@@ -16,3 +16,6 @@
 [submodule "Submodule/sstoolkit"]
 	path = Submodule/sstoolkit
 	url = git@github.com:samsoffes/sstoolkit.git
+[submodule "Vendor/SSToolkit"]
+	path = Vendor/SSToolkit
+	url = git://github.com/samsoffes/sstoolkit.git

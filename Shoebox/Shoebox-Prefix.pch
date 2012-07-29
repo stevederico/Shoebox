@@ -15,4 +15,6 @@
     #import "SDKit.h"
     #import "SSDataKit.h"
     #import <Parse/Parse.h>
+#import <SSToolkit/SSToolkit.h>
+
 #endif

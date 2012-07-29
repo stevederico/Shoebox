@@ -18,7 +18,6 @@
 }
 @synthesize photos = _photos;
 @synthesize group = _group;
-@synthesize scrollView = _scrollView;
 
 - (id)initWithGroup:(PFObject*)group{
 
@@ -26,19 +25,9 @@
     if (self) {
         self.group = group;
         self.title = [group objectForKey:@"Name"];
-        [self.view setBackgroundColor:[UIColor whiteColor]];
-        self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width,  self.view.bounds.size.height)];
-          [self.scrollView setContentOffset:CGPointMake(0.0f, self.scrollView.contentSize.height) animated:NO];
-        [self.scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 175.0f, 0.0f)];
-        [self.view addSubview:self.scrollView];
+        self.collectionView.rowSpacing = 5.0;
 
-        footer = [[SDFooterButtonView alloc] initWithStyle:SDFooterButtonStyleGreen];
-        [footer setFrame:CGRectZero];
-        [footer.button setTitle:@"Add Photos" forState:UIControlStateNormal];
-        [footer.button addTarget:self action:@selector(showUpload) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:footer];
         
-
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(viewDidAppear:) 
                                                      name:@"PhotoDone"
@@ -52,32 +41,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    self.wantsFullScreenLayout = YES;
-      [self.scrollView setContentOffset:CGPointMake(0.0f, self.scrollView.contentSize.height) animated:NO];
     
 	// Do any additional setup after loading the view.
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:nil  action:nil];
     self.navigationItem.backBarButtonItem = backButton;
     
-    UIBarButtonItem *inviteButton = [[UIBarButtonItem alloc] initWithTitle:@"Invite" style:UIBarButtonItemStyleBordered target:self  action:@selector(showInvite)];
-    self.navigationItem.rightBarButtonItem = inviteButton;
-
-    [self.scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 175.0f, 0.0f)];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithTitle:@"Add Photos" style:UIBarButtonItemStyleBordered target:self  action:@selector(showUpload)];
+    self.navigationItem.rightBarButtonItem = addButton;
 
 }
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-
-    [self.scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 175.0f, 0.0f)];
-    [self.scrollView setContentOffset:CGPointMake(0.0f, self.scrollView.contentSize.height-275.0f) animated:NO];
-  
-    
-    NSLog(@"Height %f", self.view.bounds.size.height);
-    NSLog(@"Place %f", self.view.bounds.size.height -65);
-    [footer setFrame:CGRectMake(0, self.view.bounds.size.height - 65.0f,  self.view.bounds.size.width, 50.0f)];
-
     PFRelation *relation = [self.group relationforKey:@"Photos"];
     PFQuery *q = [relation query];
     [q setCachePolicy:kPFCachePolicyNetworkElseCache ];
@@ -89,55 +64,16 @@
             // results have all the Posts the current user liked.
             if ([result count]>self.photos.count) {
                 self.photos = result;
-                [self setupThumbs];
+                [self.collectionView reloadData];
+                //                [self setupThumbs];
             }
-          
+            
         }
         
     }];
-
-}
-
-- (void)setupThumbs{
     
-    CGRect __block rect = CGRectMake(5, 70, 100, 100);
-    int i = 1;
-    for (PFObject *p in self.photos) {
-        
-        NSData *data = [[p objectForKey:@"file"] getData];
-        UIImage *image = [UIImage imageWithData:data];
-        UIButton *b = [[UIButton alloc] initWithFrame:rect];
-        [b setImage:image forState:UIControlStateNormal];
-        [b setClipsToBounds:YES];
-        [b setTag:i];
-        i++;
-        [b.imageView setContentMode:UIViewContentModeScaleAspectFill];
-        [b setAdjustsImageWhenHighlighted:NO];
-        [b addTarget:self action:@selector(showPhoto:) forControlEvents:UIControlEventTouchUpInside];
-        NSLog(@"Added Rect %f,%f",rect.origin.x,rect.origin.y);
-        [self.scrollView addSubview:b];
-        
-        if (rect.origin.x +105 >= self.view.bounds.size.width) {
-            rect = CGRectMake(5, rect.origin.y + 105, rect.size.width, rect.size.height);
-            
-        }else{
-            rect = CGRectMake(rect.origin.x + 105, rect.origin.y, rect.size.width, rect.size.height);
-            
-        }
-        
-        NSLog(@"ContentSize: %f %f",rect.origin.x,rect.origin.y);
-
-        [self.scrollView setContentSize:CGSizeMake(rect.origin.x,rect.origin.y)];
-    }
-//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, rect.origin.y + 110, self.view.bounds.size.width, 25.0f)];
-//    [label setText:[NSString stringWithFormat:@"%d Photos, Last Updated %@",self.photos.count,self.title]];
-//    [label setTextColor:[UIColor lightGrayColor]];
-//    [label setTextAlignment:UITextAlignmentCenter];
-//    [self.scrollView addSubview:label];
-//    [self.scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 175.0f, 0.0f)];
-//    [self.scrollView setContentOffset:CGPointMake(0.0f, self.scrollView.contentSize.height-275.0f) animated:NO];
-
 }
+
 
 - (void)viewDidUnload
 {
@@ -155,13 +91,12 @@
 #pragma GridViewController
 
 
--(void)showPhoto:(id)sender{
+-(void)showPhoto:(UIImage*)_image{
     
-    UIButton *b = (UIButton*)sender;
-    UIImage *image = b.imageView.image;
+
     
-    PhotoViewController *pvc = [[PhotoViewController alloc] initWithImage:image];
-    [pvc setTitle:[NSString stringWithFormat:@"%d of %d",[sender tag],self.photos.count]];
+    PhotoViewController *pvc = [[PhotoViewController alloc] initWithImage:_image];
+//    [pvc setTitle:[NSString stringWithFormat:@"%d of %d",[sender tag],self.photos.count]];
     
     [self.navigationController pushViewController:pvc animated:YES];
 
@@ -191,7 +126,6 @@
 
 - (void)elcImagePickerController:(ELCImagePickerController *)picker didFinishPickingMediaWithInfo:(NSArray *)info{
     
-
     NSArray *photos = info;
     //add photos to group
     
@@ -199,11 +133,10 @@
     [dm addPhotos:photos ToGroup:self.group];
     
     [self dismissModalViewControllerAnimated:YES];
-    
-    
-    
-    
+
 }
+
+
 - (void)elcImagePickerControllerDidCancel:(ELCImagePickerController *)picker{
     
     [self dismissModalViewControllerAnimated:YES];
@@ -219,5 +152,48 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 
 }
+
+#pragma mark - SSCollectionViewDataSource
+
+- (NSUInteger)collectionView:(SSCollectionView *)aCollectionView numberOfItemsInSection:(NSUInteger)section {
+	return self.photos.count;
+}
+
+
+- (SSCollectionViewItem *)collectionView:(SSCollectionView *)aCollectionView itemForIndexPath:(NSIndexPath *)indexPath {
+	
+    static NSString *CellIdentifier = @"Cell";
+    SSCollectionViewItem *cell = [self.collectionView dequeueReusableItemWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[SSCollectionViewItem alloc] initWithStyle:SSCollectionViewItemStyleImage  reuseIdentifier:CellIdentifier];
+        [cell.imageView setContentMode:UIViewContentModeScaleAspectFill];
+        [cell setClipsToBounds:YES];
+    }
+    
+    PFObject *p = [self.photos objectAtIndex:indexPath.row];
+    NSData *data = [[p objectForKey:@"file"] getData];
+    UIImage *image = [UIImage imageWithData:data];
+    cell.imageView.image = image;
+    
+    return cell;
+}
+
+- (void)collectionView:(SSCollectionView *)aCollectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    PFObject *p = [self.photos objectAtIndex:indexPath.row];
+    NSData *data = [[p objectForKey:@"file"] getData];
+    UIImage *image = [UIImage imageWithData:data];
+    [self showPhoto:image];
+    
+
+}
+
+
+#pragma mark - SSCollectionViewDelegate
+
+- (CGSize)collectionView:(SSCollectionView *)aCollectionView itemSizeForSection:(NSUInteger)section {
+	return CGSizeMake(150.0f, 150.0f);
+}
+
 
 @end

@@ -12,10 +12,10 @@
 #import "PhotoViewController.h"
 #import <UIKit/UIKit.h>
 
-@interface GridViewController : UIViewController
+@interface GridViewController : SSCollectionViewController
 @property (nonatomic, strong) NSArray  *photos;
 @property (nonatomic, strong) PFObject *group;
-@property (nonatomic, strong) UIScrollView *scrollView;
+
 - (id)initWithGroup:(PFObject*)group;
 
 @end

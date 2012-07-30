@@ -43,10 +43,8 @@
         NSArray* toolbarItems = [NSArray arrayWithObjects:
                                  [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                                target:self
-                                                                               action:@selector(addStuff:)],
-                                 [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
-                                                                               target:self
-                                                                               action:@selector(searchStuff:)],
+                                                                               action:@selector(showInvite)],
+                           
                                  nil];
         
         self.toolbarItems = toolbarItems;
@@ -76,11 +74,19 @@
 
 }
 
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
+- (void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    
     self.navigationController.toolbarHidden = NO;
     self.navigationController.toolbar.tintColor = [UIColor blackColor];
     self.navigationController.toolbar.translucent = YES;
+
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+
     PFRelation *relation = [self.group relationforKey:@"Photos"];
     PFQuery *q = [relation query];
     [q setCachePolicy:kPFCachePolicyNetworkElseCache ];
@@ -127,18 +133,7 @@
 #pragma ELCImagePickerControllerDelegate
 
 - (void)showUpload{
-//    PFQuery *query = [PFUser query];
-//    [query getFirstObject];
-//    [query whereKey:@"email" equalTo:@"stevebay22@gmail.com"];
-//    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-//        PFUser *friend = (PFUser*)object;
-//        [self.group.ACL setReadAccess:YES forUser:friend];
-//        [self.group.ACL setWriteAccess:YES forUser:friend];
-//    }];
 
-    
-   
-    
     ELCAlbumPickerController *avc = [[ELCAlbumPickerController alloc] initWithStyle:UITableViewStyleGrouped];
     ELCImagePickerController *controller  = [[ELCImagePickerController alloc] initWithRootViewController:avc];
     [avc setParent:controller];  
@@ -168,6 +163,31 @@
     
 }
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    NSString *input = [[alertView textFieldAtIndex:0] text];
+
+    PFQuery *query = [PFUser query];
+    [query getFirstObject];
+    [query whereKey:@"email" equalTo:[input lowercaseString]];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if (object) {
+            PFUser *friend = (PFUser*)object;
+            [self.group.ACL setReadAccess:YES forUser:friend];
+            [self.group.ACL setWriteAccess:YES forUser:friend];
+            SSHUDView *hud = [[SSHUDView alloc] init];
+            [hud completeAndDismissWithTitle:@"Invite Sent!"];
+            [hud show];
+        }else{
+            SSHUDView *hud = [[SSHUDView alloc] init];
+            [hud failAndDismissWithTitle:@"No User Found"];
+            [hud show];
+            NSLog(@"No User Found");
+        
+        }
+    }];
+    
+}
 
 #pragma GridViewController
 
@@ -186,9 +206,16 @@
 
 - (void)showInvite{
     
-    InviteViewController *ivc = [[InviteViewController alloc] initWithGroup:self.group];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:ivc];
-    [self.navigationController presentModalViewController:nav animated:YES];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enter Email" message:@"Enter the email address the invitee" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Done",nil];
+    [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    
+    
+    [alert show];
+    
+    
+//    InviteViewController *ivc = [[InviteViewController alloc] initWithGroup:self.group];
+//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:ivc];
+//    [self.navigationController presentModalViewController:nav animated:YES];
     
 }
 

@@ -101,7 +101,8 @@ MISC
 -make navigationbar black
 -async photo upload
 
-
+-Add Login with Facebook
+-Add Login with Twitter
 
 
 

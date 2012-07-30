@@ -15,7 +15,7 @@
 #import "EGOPhotoSource.h"
 
 
-@interface GridViewController : SSCollectionViewController{
+@interface GridViewController : SSCollectionViewController <UIAlertViewDelegate>{
     
     NSInteger cIndex;
 

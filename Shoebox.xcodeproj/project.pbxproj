@@ -703,10 +703,10 @@
 				7BB2549E157C6ACA0084ACA8 /* HomeViewController.m */,
 				7BB25499157C6AA60084ACA8 /* NameGroupViewController.h */,
 				7BB2549A157C6AA60084ACA8 /* NameGroupViewController.m */,
-				7B47276F157CA191007C0FF9 /* InviteViewController.h */,
-				7B472770157CA191007C0FF9 /* InviteViewController.m */,
 				7B472785157D3E46007C0FF9 /* GridViewController.h */,
 				7B472786157D3E47007C0FF9 /* GridViewController.m */,
+				7B47276F157CA191007C0FF9 /* InviteViewController.h */,
+				7B472770157CA191007C0FF9 /* InviteViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";

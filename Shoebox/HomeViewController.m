@@ -45,10 +45,18 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+
+    [super viewWillAppear:animated];
+    
+      self.navigationController.toolbarHidden = YES;
+
+}
+
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
         
-    self.navigationController.toolbarHidden = YES;
+  
 
     
     PFQuery *query = [PFQuery queryWithClassName:@"Group"];
@@ -117,9 +125,7 @@
     NSLog(@"Group %@",g);
     
     GridViewController *grid = [[GridViewController alloc] initWithGroup:g];
-    self.navigationController.toolbarHidden = NO;
-    self.navigationController.toolbar.tintColor = [UIColor blackColor];
-    self.navigationController.toolbar.translucent = YES;
+
     [self.navigationController pushViewController:grid animated:YES];
     
 }

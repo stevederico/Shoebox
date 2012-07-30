@@ -48,6 +48,9 @@
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
         
+    self.navigationController.toolbarHidden = YES;
+
+    
     PFQuery *query = [PFQuery queryWithClassName:@"Group"];
     query.cachePolicy = kPFCachePolicyNetworkElseCache;
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -114,6 +117,9 @@
     NSLog(@"Group %@",g);
     
     GridViewController *grid = [[GridViewController alloc] initWithGroup:g];
+    self.navigationController.toolbarHidden = NO;
+    self.navigationController.toolbar.tintColor = [UIColor blackColor];
+    self.navigationController.toolbar.translucent = YES;
     [self.navigationController pushViewController:grid animated:YES];
     
 }

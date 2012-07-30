@@ -68,7 +68,7 @@
         UIImage *image = [dict objectForKey:@"UIImagePickerControllerOriginalImage"];
         NSData *data = UIImagePNGRepresentation(image);
         
-        PFFile *file = [PFFile fileWithName:[NSString stringWithFormat:@"%@-%@-%@.png",[group valueForKey:@"Name"], [[PFUser currentUser] username], [NSDate date]] data:data];
+        PFFile *file = [PFFile fileWithName:[NSString stringWithFormat:@"%@.png",[group valueForKey:@"Name"]] data:data];
         
         [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             [photo setValue:file forKey:@"file"];

@@ -40,7 +40,17 @@
         self.collectionView.rowSpacing = 5.0;
         self.images = [[NSMutableArray alloc] init];
         
-
+        NSArray* toolbarItems = [NSArray arrayWithObjects:
+                                 [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                               target:self
+                                                                               action:@selector(addStuff:)],
+                                 [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
+                                                                               target:self
+                                                                               action:@selector(searchStuff:)],
+                                 nil];
+        
+        self.toolbarItems = toolbarItems;
+        
         
         
         [[NSNotificationCenter defaultCenter] addObserver:self
@@ -56,7 +66,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
 	// Do any additional setup after loading the view.
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:nil  action:nil];
     self.navigationItem.backBarButtonItem = backButton;
@@ -68,6 +78,9 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    self.navigationController.toolbarHidden = NO;
+    self.navigationController.toolbar.tintColor = [UIColor blackColor];
+    self.navigationController.toolbar.translucent = YES;
     PFRelation *relation = [self.group relationforKey:@"Photos"];
     PFQuery *q = [relation query];
     [q setCachePolicy:kPFCachePolicyNetworkElseCache ];
@@ -184,6 +197,8 @@
 - (NSUInteger)collectionView:(SSCollectionView *)aCollectionView numberOfItemsInSection:(NSUInteger)section {
 	return self.photos.count;
 }
+
+
 
 
 - (SSCollectionViewItem *)collectionView:(SSCollectionView *)aCollectionView itemForIndexPath:(NSIndexPath *)indexPath {

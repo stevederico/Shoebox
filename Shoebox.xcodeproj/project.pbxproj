@@ -36,7 +36,6 @@
 		7B472773157CA191007C0FF9 /* InviteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B472771157CA191007C0FF9 /* InviteViewController.xib */; };
 		7B472777157D25BD007C0FF9 /* SDDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B472776157D25BD007C0FF9 /* SDDataManager.m */; };
 		7B472787157D3E47007C0FF9 /* GridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B472786157D3E47007C0FF9 /* GridViewController.m */; };
-		7B47278A157D513A007C0FF9 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B472789157D513A007C0FF9 /* PhotoViewController.m */; };
 		7B47278C157D6CF8007C0FF9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B47278B157D6CF7007C0FF9 /* QuartzCore.framework */; };
 		7B7BFC2B15831C0F009DA726 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7BFC2A15831C0F009DA726 /* AudioToolbox.framework */; };
 		7B7BFC2D15831C16009DA726 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7BFC2C15831C16009DA726 /* CFNetwork.framework */; };
@@ -194,8 +193,6 @@
 		7B472776157D25BD007C0FF9 /* SDDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDDataManager.m; sourceTree = "<group>"; };
 		7B472785157D3E46007C0FF9 /* GridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridViewController.h; sourceTree = "<group>"; };
 		7B472786157D3E47007C0FF9 /* GridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridViewController.m; sourceTree = "<group>"; };
-		7B472788157D5139007C0FF9 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
-		7B472789157D513A007C0FF9 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
 		7B47278B157D6CF7007C0FF9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7B7BFC2A15831C0F009DA726 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		7B7BFC2C15831C16009DA726 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -710,8 +707,6 @@
 				7B472770157CA191007C0FF9 /* InviteViewController.m */,
 				7B472785157D3E46007C0FF9 /* GridViewController.h */,
 				7B472786157D3E47007C0FF9 /* GridViewController.m */,
-				7B472788157D5139007C0FF9 /* PhotoViewController.h */,
-				7B472789157D513A007C0FF9 /* PhotoViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -905,7 +900,6 @@
 				7B472772157CA191007C0FF9 /* InviteViewController.m in Sources */,
 				7B472777157D25BD007C0FF9 /* SDDataManager.m in Sources */,
 				7B472787157D3E47007C0FF9 /* GridViewController.m in Sources */,
-				7B47278A157D513A007C0FF9 /* PhotoViewController.m in Sources */,
 				7BAD4A8115C4DEDB009B8828 /* ELCAlbumPickerController.m in Sources */,
 				7BAD4A8315C4DEDB009B8828 /* ELCAsset.m in Sources */,
 				7BAD4A8415C4DEDB009B8828 /* ELCAssetCell.m in Sources */,

@@ -9,7 +9,7 @@
 #import "ELCAlbumPickerController.h"
 #import "ELCImagePickerController.h"
 #import "InviteViewController.h"
-#import "PhotoViewController.h"
+
 #import <UIKit/UIKit.h>
 #import "EGOPhotoViewController.h"
 #import "EGOPhotoSource.h"

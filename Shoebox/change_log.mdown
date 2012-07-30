@@ -43,7 +43,7 @@ Added User-Only Objects
 Add Username to lowercase
 Added Black Nav Bar
 Added Black background to Gridview
-
+Hide Caption View
 
 
 HOME

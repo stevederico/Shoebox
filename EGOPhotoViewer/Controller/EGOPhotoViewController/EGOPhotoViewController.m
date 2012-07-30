@@ -115,14 +115,14 @@
 
 	}
 	
-	if (!_captionView) {
-		
-		EGOPhotoCaptionView *view = [[EGOPhotoCaptionView alloc] initWithFrame:CGRectMake(0.0f, self.view.frame.size.height, self.view.frame.size.width, 1.0f)];
-		[self.view addSubview:view];
-		_captionView=view;
-		[view release];
-		
-	}
+//	if (!_captionView) {
+//		
+//		EGOPhotoCaptionView *view = [[EGOPhotoCaptionView alloc] initWithFrame:CGRectMake(0.0f, self.view.frame.size.height, self.view.frame.size.width, 1.0f)];
+//		[self.view addSubview:view];
+//		_captionView=view;
+//		[view release];
+//		
+//	}
 	
 	//  load photoviews lazily
 	NSMutableArray *views = [[NSMutableArray alloc] init];
@@ -389,7 +389,7 @@
 - (void)setCurrentPhotoIndex:(NSInteger)page{
 	
     _pageIndex = page;
-	
+	[self setupToolbar];
 	
 }
 
@@ -425,7 +425,7 @@
 	if (hidden&&_barsHidden) return;
 	
 	if (_popover && [self.photoSource numberOfPhotos] == 0) {
-		[_captionView setCaptionHidden:hidden];
+//		[_captionView setCaptionHidden:hidden];
 		return;
 	}
 		
@@ -464,10 +464,10 @@
 	
 #endif
 	
-	if (_captionView) {
-		[_captionView setCaptionHidden:hidden];
-	}
-	
+//	if (_captionView) {
+//		[_captionView setCaptionHidden:hidden];
+//	}
+//	
 	_barsHidden=hidden;
 	
 }
@@ -784,7 +784,7 @@
 
 - (void)setupScrollViewContentSize{
 	
-	CGFloat toolbarSize = _popover ? 0.0f : self.navigationController.toolbar.frame.size.height;	
+//	CGFloat toolbarSize = _popover ? 0.0f : self.navigationController.toolbar.frame.size.height;	
 	
 	CGSize contentSize = self.view.bounds.size;
 	contentSize.width = (contentSize.width * [self.photoSource numberOfPhotos]);
@@ -793,7 +793,7 @@
 		self.scrollView.contentSize = contentSize;
 	}
 	
-	_captionView.frame = CGRectMake(0.0f, self.view.bounds.size.height - (toolbarSize + 40.0f), self.view.bounds.size.width, 40.0f);
+//	_captionView.frame = CGRectMake(0.0f, self.view.bounds.size.height - (toolbarSize + 40.0f), self.view.bounds.size.width, 40.0f);
 
 }
 

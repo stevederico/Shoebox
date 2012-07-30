@@ -62,13 +62,13 @@
         NSLog(@"Dict %@",dict);
         
         PFObject *photo = [PFObject objectWithClassName:@"Photo"];
-        [photo setValue:@"ME" forKey:@"Owner"];
+        [photo setValue:[[PFUser currentUser] objectId] forKey:@"Owner"];
         [photo setValue:group forKey:@"Group"];
         
         UIImage *image = [dict objectForKey:@"UIImagePickerControllerOriginalImage"];
         NSData *data = UIImagePNGRepresentation(image);
         
-        PFFile *file = [PFFile fileWithName:[NSString stringWithFormat:@"%@.png",[group valueForKey:@"Name"]] data:data];
+        PFFile *file = [PFFile fileWithName:[NSString stringWithFormat:@"%@-%@-%@.png",[group valueForKey:@"Name"], [[PFUser currentUser] username], [NSDate date]] data:data];
         
         [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             [photo setValue:file forKey:@"file"];
@@ -78,7 +78,7 @@
             [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 
                 [relation addObject:photo];
-                [group save];
+                [group saveInBackground];
             }];
             
         } progressBlock:^(int percentDone) {

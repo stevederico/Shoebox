@@ -40,6 +40,9 @@
         self.collectionView.rowSpacing = 5.0;
         self.images = [[NSMutableArray alloc] init];
         
+
+        
+        
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(viewDidAppear:) 
                                                      name:@"PhotoDone"
@@ -111,14 +114,14 @@
 #pragma ELCImagePickerControllerDelegate
 
 - (void)showUpload{
-    PFQuery *query = [PFUser query];
-    [query getFirstObject];
-    [query whereKey:@"email" equalTo:@"stevebay22@gmail.com"];
-    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        PFUser *friend = (PFUser*)object;
-        [self.group.ACL setReadAccess:YES forUser:friend];
-        [self.group.ACL setWriteAccess:YES forUser:friend];
-    }];
+//    PFQuery *query = [PFUser query];
+//    [query getFirstObject];
+//    [query whereKey:@"email" equalTo:@"stevebay22@gmail.com"];
+//    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+//        PFUser *friend = (PFUser*)object;
+//        [self.group.ACL setReadAccess:YES forUser:friend];
+//        [self.group.ACL setWriteAccess:YES forUser:friend];
+//    }];
 
     
    
@@ -162,7 +165,7 @@
     NSLog(@"%d",self.images.count);
 
     EGOPhotoViewController *pvc = [[EGOPhotoViewController alloc] initWithPhotoSource:source];
-    pvc.currentPhotoIndex = cIndex;
+    [pvc setCurrentPhotoIndex:cIndex];
     [self.navigationController pushViewController:pvc animated:YES];
     
     

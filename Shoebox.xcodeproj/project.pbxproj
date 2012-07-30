@@ -505,7 +505,6 @@
 		7BB25404157C68DE0084ACA8 = {
 			isa = PBXGroup;
 			children = (
-				7B1857EE15C5036400166404 /* MessageUI.framework */,
 				7BB25419157C68DE0084ACA8 /* Shoebox */,
 				7BB25412157C68DE0084ACA8 /* Frameworks */,
 				7BB25410157C68DE0084ACA8 /* Products */,
@@ -523,6 +522,7 @@
 		7BB25412157C68DE0084ACA8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7B1857EE15C5036400166404 /* MessageUI.framework */,
 				7B1857AE15C5020300166404 /* EGOPhotoViewer */,
 				7B18576815C4F72D00166404 /* StoreKit.framework */,
 				7B18575215C4F5B700166404 /* SSToolkit.xcodeproj */,
@@ -1026,7 +1026,7 @@
 		7BB25429157C68DE0084ACA8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Stephen Derico (RGS2F76K98)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Stephen Derico";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Submodule\"",
@@ -1042,7 +1042,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "28056BA8-7B22-441B-93C7-4F62105F9BA8";
+				PROVISIONING_PROFILE = "D3F4A88B-DBB4-48BF-AE44-CED0A30BD2A1";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

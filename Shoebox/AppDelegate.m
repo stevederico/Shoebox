@@ -19,16 +19,13 @@
                   clientKey:@"WsmsEbjX8ztmiT9N2Qxzjvj1Ye1e6rWW8D14c07D"];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    HomeViewController *hvc = [[HomeViewController alloc] initWithStyle:UITableViewStylePlain];
+    HomeViewController *hvc = [[HomeViewController alloc] initWithStyle:UITableViewStyleGrouped];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:hvc];
     [self.window setRootViewController:nav];
-    
-    
-    
-    
-//    self.window.backgroundColor = [UIColor blackColor];
     [self.window makeKeyAndVisible];
   
+    [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
+    
     
     return YES;
 }

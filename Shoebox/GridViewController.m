@@ -34,6 +34,7 @@
 
     self = [super init];
     if (self) {
+        self.view.backgroundColor = [UIColor blackColor];
         self.group = group;
         self.title = [group objectForKey:@"Name"];
         self.collectionView.rowSpacing = 5.0;

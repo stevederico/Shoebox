@@ -40,6 +40,9 @@ added Jump to Photo
 July 29th, 2012
 Added User Login
 Added User-Only Objects
+Add Username to lowercase
+Added Black Nav Bar
+Added Black background to Gridview
 
 
 
@@ -87,9 +90,18 @@ MISC
 -fix symbols in Group name bug
 -add invite by email
 
--add to lowercase
+
 -animate photo upload on grid
 -add username to photo upload
+-remove bar from gallery
+-Album Auto Selector back bug
+-Add animation for photo upload
+-add bottom bar to gridview, download all that are not yours
+-round corners on photos in gridview
+-make navigationbar black
+-async photo upload
+
+
 
 
 

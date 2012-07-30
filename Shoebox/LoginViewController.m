@@ -20,10 +20,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
-        // Custom initialization
-        UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleDone target:self action:@selector(cancel)];
-        self.navigationItem.leftBarButtonItem = cancel;
+        self.title = @"Shoebox";
         
         UIBarButtonItem *signUpButton = [[UIBarButtonItem alloc] initWithTitle:@"Sign Up" style:UIBarButtonItemStyleDone target:self action:@selector(signup)];
         self.navigationItem.rightBarButtonItem = signUpButton;
